@@ -7,7 +7,8 @@
   <meta name="description" content="Akasha: Sessões VIP Presenciais, Curso de Alinhamento Quântico, Mentorias 1:1 e Ritual para Casal. Transformação energética profunda.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- Fontes elegantes e misteriosas -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;900&family=Cinzel:wght@400;500;600;700&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -36,25 +37,54 @@
     header.scrolled{box-shadow:0 4px 20px rgba(212,175,55,0.15);background:rgba(0,0,0,0.95)}
     .header-container{
       display:flex;justify-content:space-between;align-items:center;
-      padding:1.2rem clamp(1rem,5vw,2rem);max-width:1400px;margin:0 auto;
+      padding:1rem clamp(1rem,5vw,2rem);max-width:1400px;margin:0 auto;
     }
+    
+    /* LOGO COM IMAGEM */
     .logo{
-      display:flex;align-items:center;gap:10px;font-weight:700;
-      font-size:clamp(1.5rem,5vw,2.2rem);color:var(--secondary);text-decoration:none;
+      display:flex;align-items:center;text-decoration:none;
       transition:all .3s;
     }
-    .logo:hover{transform:scale(1.05);text-shadow:0 0 15px rgba(212,175,55,.5)}
+    .logo img {
+      height: 55px;
+      width: auto;
+      transition: all 0.3s;
+    }
+    .logo:hover{transform:scale(1.05)}
+    .logo:hover img{filter: drop-shadow(0 0 15px rgba(212,175,55,.6))}
+    
+    /* NAVEGAÇÃO COM FONTE ELEGANTE */
     nav ul{display:flex;list-style:none;gap:clamp(1rem,2vw,2rem);flex-wrap:wrap}
-    nav a{color:var(--lux);text-decoration:none;font-weight:500;position:relative;padding-bottom:2px;transition:color .3s}
-    nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--secondary);transition:width .3s}
-    nav a:hover{color:var(--secondary)}
+    nav a{
+      font-family: 'Cinzel', serif;
+      color:var(--lux);
+      text-decoration:none;
+      font-weight:500;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      position:relative;
+      padding-bottom:2px;
+      transition:all .3s;
+    }
+    nav a::after{
+      content:'';
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      width:0;
+      height:1px;
+      background:linear-gradient(90deg, var(--secondary), var(--accent));
+      transition:width .3s;
+    }
+    nav a:hover{color:var(--secondary);text-shadow: 0 0 10px rgba(212,175,55,0.4)}
     nav a:hover::after{width:100%}
     
     .auth-buttons{display:flex;gap:1rem;align-items:center}
     .btn-login,.btn-signup{
       padding:.7rem 1.5rem;border-radius:30px;font-weight:600;cursor:pointer;
-      transition:all .3s;border:none;font-family:inherit;font-size:.95rem;
-      text-decoration:none;
+      transition:all .3s;border:none;font-family:'Cinzel', serif;font-size:.85rem;
+      text-decoration:none;letter-spacing: 1px;
     }
     .btn-login{background:transparent;border:1px solid var(--secondary);color:var(--secondary)}
     .btn-login:hover{border-color:var(--secondary);transform:translateY(-2px);box-shadow:0 5px 15px rgba(212,175,55,.2)}
@@ -122,16 +152,32 @@
     .section-title h2 a{color:var(--lux);text-decoration:none;transition:all .3s}
     .section-title h2 a:hover{color:var(--secondary);text-shadow:0 0 20px rgba(212,175,55,.5)}
     
+    /* TABS COM FONTE ELEGANTE */
     .tabs{
       display:flex;justify-content:center;gap:1rem;margin:3rem 0 4rem;flex-wrap:wrap;
     }
     .tab-btn{
-      background:var(--glass-bg);backdrop-filter:blur(10px);border:1px solid rgba(212,175,55,.2);
-      color:var(--lux);padding:.9rem 2rem;border-radius:10px;cursor:pointer;font-size:1.1rem;
-      display:flex;align-items:center;gap:10px;transition:all .3s;
+      font-family: 'Cinzel', serif;
+      background:var(--glass-bg);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(212,175,55,.2);
+      color:var(--lux);
+      padding:.9rem 2rem;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:0.95rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      transition:all .3s;
     }
     .tab-btn.active,.tab-btn:hover{
-      background:rgba(212,175,55,.15);border-bottom:3px solid var(--secondary);color:var(--secondary);
+      background:rgba(212,175,55,.15);
+      border-bottom:3px solid var(--secondary);
+      color:var(--secondary);
+      text-shadow: 0 0 10px rgba(212,175,55,0.3);
     }
     .tab-content{display:none;animation:fadeIn .6s}
     .tab-content.active{display:block}
@@ -520,6 +566,100 @@
       box-shadow: 0 12px 35px rgba(212,175,55,0.4);
     }
     
+    /* ========== CONTROLE DE ÁUDIO DE FUNDO ========== */
+    .audio-control {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 50px;
+      padding: 12px 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s;
+    }
+    
+    .audio-control:hover {
+      border-color: var(--secondary);
+      box-shadow: 0 15px 50px rgba(212, 175, 55, 0.3);
+    }
+    
+    .audio-control-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), #b9972e);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+    }
+    
+    .audio-control-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .audio-control-btn i {
+      font-size: 1.2rem;
+      color: #000;
+    }
+    
+    .audio-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .audio-info span {
+      color: var(--lux);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    
+    .audio-info small {
+      color: var(--secondary);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .audio-visualizer {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 25px;
+    }
+    
+    .audio-visualizer span {
+      width: 3px;
+      background: var(--secondary);
+      border-radius: 3px;
+      animation: visualizer 0.5s ease-in-out infinite alternate;
+    }
+    
+    .audio-visualizer span:nth-child(1) { height: 10px; animation-delay: 0s; }
+    .audio-visualizer span:nth-child(2) { height: 18px; animation-delay: 0.1s; }
+    .audio-visualizer span:nth-child(3) { height: 12px; animation-delay: 0.2s; }
+    .audio-visualizer span:nth-child(4) { height: 20px; animation-delay: 0.3s; }
+    .audio-visualizer span:nth-child(5) { height: 8px; animation-delay: 0.4s; }
+    
+    .audio-visualizer.paused span {
+      animation: none;
+      height: 5px !important;
+    }
+    
+    @keyframes visualizer {
+      0% { transform: scaleY(1); }
+      100% { transform: scaleY(1.8); }
+    }
+    
     .scroll-progress{position:fixed;top:0;left:0;width:0;height:4px;background:var(--secondary);z-index:1001;transition:width .2s}
     
     @media (max-width:768px){
@@ -564,18 +704,65 @@
       .card-video {
         height: 180px;
       }
+      .logo img {
+        height: 45px;
+      }
+      nav a {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+      }
+      .tab-btn {
+        font-size: 0.8rem;
+        padding: 0.7rem 1.2rem;
+        letter-spacing: 0.8px;
+      }
+      .audio-control {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+      }
+      .audio-info {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
+  
+  <!-- ÁUDIO DE FUNDO -->
+  <audio id="backgroundAudio" loop preload="auto">
+    <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1764878192/COMBO_RIQUEZA_ABSOLUTA____%C3%81UDIO_EXTREMAMENTE_PODEROSO_zqaN57FBnUo_1_u9on2b.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- CONTROLE DE ÁUDIO FLUTUANTE -->
+  <div class="audio-control" id="audioControl">
+    <div class="audio-visualizer" id="audioVisualizer">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="audio-info">
+      <span>Aura Akáshica</span>
+      <small>Áudio de Ativação</small>
+    </div>
+    <button class="audio-control-btn" id="audioToggle" onclick="toggleBackgroundAudio()">
+      <i class="fas fa-play" id="audioIcon"></i>
+    </button>
+  </div>
+
   <div class="scroll-progress"></div>
   
   <header id="header">
     <div class="header-container">
-      <a href="#" class="logo"><i class="fas fa-infinity"></i> AKASHA</a>
+      <!-- LOGO COM IMAGEM OFICIAL -->
+      <a href="#" class="logo">
+        <img src="https://i.ibb.co/Fbxk6mQ3/Design-sem-nome-2.png" alt="Akasha Logo">
+      </a>
       <nav>
         <ul id="navList">
-          <li><a href="#audios">Biblioteca de Áudios</a></li>
+          <li><a href="#audios">Biblioteca</a></li>
           <li><a href="#sessoes">Sessões Online</a></li>
           <li><a href="https://hubcomplier.github.io/PRESENCIAPVIP2/" target="_blank">Sessões VIP</a></li>
           <li><a href="https://hubcomplier.github.io/CURSOAKASHA/" target="_blank">Curso Akasha</a></li>
@@ -633,7 +820,7 @@
             <div class="audio-badge free-badge">GRATUITO</div>
             <h4>Meditação de Aterramento</h4>
             <p>Conexão com a Terra • 15 min</p>
-            <div class="audio-preview">
+            <div class="audio-preview" onclick="playFreeAudio(this, 'Meditação de Aterramento')">
               <i class="fas fa-play-circle"></i>
               <span>Preview disponível</span>
             </div>
@@ -644,7 +831,7 @@
             <div class="audio-badge free-badge">GRATUITO</div>
             <h4>Relaxamento Noturno</h4>
             <p>Indução ao sono profundo • 20 min</p>
-            <div class="audio-preview">
+            <div class="audio-preview" onclick="playFreeAudio(this, 'Relaxamento Noturno')">
               <i class="fas fa-play-circle"></i>
               <span>Preview disponível</span>
             </div>
@@ -655,7 +842,7 @@
             <div class="audio-badge free-badge">GRATUITO</div>
             <h4>Ativação do Coração</h4>
             <p>Abertura do chakra cardíaco • 12 min</p>
-            <div class="audio-preview">
+            <div class="audio-preview" onclick="playFreeAudio(this, 'Ativação do Coração')">
               <i class="fas fa-play-circle"></i>
               <span>Preview disponível</span>
             </div>
@@ -666,7 +853,7 @@
             <div class="audio-badge free-badge">GRATUITO</div>
             <h4>Despertar Matinal</h4>
             <p>Energia para o dia • 10 min</p>
-            <div class="audio-preview">
+            <div class="audio-preview" onclick="playFreeAudio(this, 'Despertar Matinal')">
               <i class="fas fa-play-circle"></i>
               <span>Preview disponível</span>
             </div>
@@ -1147,12 +1334,91 @@
   </footer>
 
   <script>
+    // ========== SISTEMA DE ÁUDIO DE FUNDO ==========
+    const backgroundAudio = document.getElementById('backgroundAudio');
+    const audioIcon = document.getElementById('audioIcon');
+    const audioVisualizer = document.getElementById('audioVisualizer');
+    let isPlaying = false;
+    let userInteracted = false;
+    
+    // Tentar iniciar o áudio automaticamente após interação do usuário
+    function initAudio() {
+      if (!userInteracted) {
+        userInteracted = true;
+        backgroundAudio.volume = 0.3; // Volume inicial em 30%
+        backgroundAudio.play().then(() => {
+          isPlaying = true;
+          audioIcon.classList.remove('fa-play');
+          audioIcon.classList.add('fa-pause');
+          audioVisualizer.classList.remove('paused');
+        }).catch(err => {
+          console.log('Autoplay bloqueado, usuário precisa clicar para iniciar');
+        });
+      }
+    }
+    
+    // Detectar primeira interação
+    document.addEventListener('click', initAudio, { once: true });
+    document.addEventListener('scroll', initAudio, { once: true });
+    document.addEventListener('keydown', initAudio, { once: true });
+    
+    // Toggle do áudio de fundo
+    function toggleBackgroundAudio() {
+      if (isPlaying) {
+        backgroundAudio.pause();
+        audioIcon.classList.remove('fa-pause');
+        audioIcon.classList.add('fa-play');
+        audioVisualizer.classList.add('paused');
+        isPlaying = false;
+      } else {
+        backgroundAudio.play();
+        audioIcon.classList.remove('fa-play');
+        audioIcon.classList.add('fa-pause');
+        audioVisualizer.classList.remove('paused');
+        isPlaying = true;
+      }
+    }
+    
+    // Pausar áudio de fundo quando clicar em um áudio gratuito
+    function playFreeAudio(element, audioName) {
+      // Pausar o áudio de fundo
+      if (isPlaying) {
+        backgroundAudio.pause();
+        audioIcon.classList.remove('fa-pause');
+        audioIcon.classList.add('fa-play');
+        audioVisualizer.classList.add('paused');
+        isPlaying = false;
+      }
+      
+      // Feedback visual
+      const icon = element.querySelector('i');
+      const span = element.querySelector('span');
+      
+      // Simular reprodução (aqui você pode integrar com áudios reais)
+      icon.classList.remove('fa-play-circle');
+      icon.classList.add('fa-pause-circle');
+      span.textContent = 'Reproduzindo: ' + audioName;
+      element.style.background = 'rgba(212, 175, 55, 0.2)';
+      element.style.color = 'var(--secondary)';
+      
+      // Resetar outros cards
+      document.querySelectorAll('.audio-preview').forEach(preview => {
+        if (preview !== element && !preview.classList.contains('locked-preview')) {
+          preview.querySelector('i').classList.remove('fa-pause-circle');
+          preview.querySelector('i').classList.add('fa-play-circle');
+          preview.querySelector('span').textContent = 'Preview disponível';
+          preview.style.background = 'rgba(76, 175, 80, 0.15)';
+          preview.style.color = '#4CAF50';
+        }
+      });
+    }
+    
+    // ========== NAVEGAÇÃO E TABS ==========
     function switchTab(tab){
       document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
       document.getElementById(tab).classList.add('active');
       
-      // Encontra o botão correto
       const buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(btn => {
         if(btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'" + tab + "'")) {
