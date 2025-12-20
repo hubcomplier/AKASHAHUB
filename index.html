@@ -3,490 +3,244 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akasha Hub • Sagrado Feminino & Masculino • Sessões VIP • Curso Quântico</title>
-  <meta name="description" content="Akasha Hub: Sessões VIP Presenciais, Curso de Alinhamento Quântico, Mentorias 1:1 e Ritual para Casal. Transformação energética profunda.">
+  <title>Akasha Hub • Portal de Transformação</title>
   
-  <!-- Open Graph -->
-  <meta property="og:title" content="Akasha Hub • Alinhamento Quântico">
-  <meta property="og:description" content="Sessões VIP, Curso de Alinhamento Quântico, Mentorias 1:1">
-  <meta property="og:image" content="https://i.ibb.co/Fbxk6mQ3/Design-sem-nome-2.png">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0b0016">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://i.ibb.co/Fbxk6mQ3/Design-sem-nome-2.png">
-  
+  <!-- Fontes e Estilos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;900&family=Cinzel:wght@400;500;600;700;800;900&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
+    /* SEU CSS ORIGINAL (Resumido para focar na integração) */
     :root {
-      --primary:#0b0016;
-      --secondary:#d4af37;
-      --accent:#b889ff;
-      --lux:#f5e6c8;
-      --card-bg: rgba(255,255,255,0.03);
-      --glass-bg: rgba(255,255,255,0.05);
+      --primary:#0b0016; --secondary:#d4af37; --lux:#f5e6c8;
+      --modal-bg: rgba(11, 0, 22, 0.98);
     }
     *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      background:radial-gradient(circle at top,#1a002f,#000);
-      font-family:'Cormorant Garamond',serif;
-      color:#eee;
-      min-height:100vh;
-      line-height:1.6;
-    }
+    body{background:radial-gradient(circle at top,#1a002f,#000);font-family:'Cormorant Garamond',serif;color:#eee;}
     
-    header{
-      background:rgba(0,0,0,0.85);
-      backdrop-filter:blur(12px) saturate(180%);
-      border-bottom:1px solid var(--secondary);
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      height: 70px;
-    }
-    header.scrolled{box-shadow:0 4px 20px rgba(212,175,55,0.15);background:rgba(0,0,0,0.95)}
-    .header-container{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:0 clamp(1rem,5vw,2rem);max-width:1400px;margin:0 auto;
-      height: 100%;
-    }
+    header{background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--secondary);position:fixed;top:0;left:0;right:0;z-index:1000;height:70px;}
+    .header-container{display:flex;justify-content:space-between;align-items:center;padding:0 2rem;max-width:1400px;margin:0 auto;height:100%;}
+    .logo img {height: 55px;}
     
-    .logo{
-      display:flex;align-items:center;text-decoration:none;
-      transition:all .3s;
-      z-index: 1100;
-      position: relative;
+    /* Botão de Login no Menu */
+    .btn-login-nav {
+      background: transparent; border: 1px solid var(--secondary); color: var(--secondary);
+      padding: 8px 20px; border-radius: 50px; cursor: pointer; font-family: 'Cinzel', serif;
+      transition: .3s; text-transform: uppercase; letter-spacing: 1px;
     }
-    .logo img {
-      height: 55px;
-      width: auto;
-      transition: all 0.3s;
+    .btn-login-nav:hover { background: var(--secondary); color: #000; box-shadow: 0 0 15px rgba(212,175,55,0.4); }
+
+    /* ESTILOS DO MODAL (NOVO) */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+      z-index: 2000; display: none; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
     }
-    .logo:hover{transform:scale(1.05)}
-    .logo:hover img{filter: drop-shadow(0 0 15px rgba(212,175,55,.6))}
+    .modal-overlay.active { display: flex; opacity: 1; }
+
+    .auth-box {
+      background: var(--modal-bg); border: 1px solid var(--secondary);
+      border-radius: 20px; padding: 40px; width: 90%; max-width: 420px;
+      position: relative; box-shadow: 0 0 50px rgba(212,175,55,0.2);
+    }
+    .close-modal { position: absolute; top: 15px; right: 20px; color: var(--lux); background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+    .auth-tabs { display: flex; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .auth-tab { flex: 1; padding: 15px; background: none; border: none; color: var(--lux); font-family: 'Cinzel', serif; cursor: pointer; opacity: 0.6; border-bottom: 2px solid transparent; }
+    .auth-tab.active { opacity: 1; color: var(--secondary); border-bottom: 2px solid var(--secondary); }
+
+    .input-group { margin-bottom: 15px; }
+    .input-group label { display: block; color: var(--lux); margin-bottom: 5px; font-size: 0.9rem; }
+    .input-group input { width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.3); border-radius: 8px; color: white; }
     
-    nav ul{display:flex;list-style:none;gap:clamp(1rem,2vw,2rem);flex-wrap:wrap}
-    nav a{
-      font-family: 'Cinzel', serif;
-      color:var(--lux);
-      text-decoration:none;
-      font-weight:500;
-      font-size: 0.95rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      position:relative;
-      padding-bottom:2px;
-      transition:all .3s;
-    }
-    nav a::after{
-      content:'';
-      position:absolute;
-      bottom:-2px;
-      left:0;
-      width:0;
-      height:1px;
-      background:linear-gradient(90deg, var(--secondary), var(--accent));
-      transition:width .3s;
-    }
-    nav a:hover{color:var(--secondary);text-shadow: 0 0 10px rgba(212,175,55,0.4)}
-    nav a:hover::after{width:100%}
+    .btn-submit { width: 100%; background: linear-gradient(135deg, var(--secondary), #b9972e); color: #000; padding: 12px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-family: 'Cinzel', serif; margin-top: 10px; }
+    .btn-google { width: 100%; background: #fff; color: #333; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: 50px; border: none; cursor: pointer; font-weight: 600; margin-top: 15px; }
     
-    .mobile-home-link {
-      display: none;
-    }
-    
-    .nav-toggle{
-      display:none;
-      background:none;
-      border:none;
-      color:var(--lux);
-      font-size:1.8rem;
-      cursor:pointer;
-      z-index: 1100;
-      position: relative;
-    }
-    
-    .hero{
-      position: relative;
-      padding:9rem 2rem 5rem;
-      text-align:center;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    
-    .hero-video-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      overflow: hidden;
-    }
-    
-    .hero-video-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(26, 0, 47, 0.7) 50%,
-        rgba(0, 0, 0, 0.85) 100%
-      );
-      z-index: -1;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
+    .auth-form { display: none; }
+    .auth-form.active { display: block; }
+    .error-msg { color: #ff6b6b; font-size: 0.85rem; text-align: center; display: none; margin-top: 10px; }
 
-    .hero-badge {
-      display: inline-block;
-      border: 1px solid var(--secondary);
-      padding: 12px 30px;
-      margin-bottom: 2rem;
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.65rem, 1.5vw, 0.85rem);
-      letter-spacing: clamp(2px, 0.5vw, 4px);
-      text-transform: uppercase;
-      color: var(--secondary);
-      background: rgba(212, 175, 55, 0.05);
-      backdrop-filter: blur(10px);
-      position: relative;
-    }
-
-    .hero-title {
-      font-family: 'Cinzel', serif;
-      font-weight: 800;
-      font-size: clamp(2.8rem, 12vw, 8rem);
-      letter-spacing: clamp(6px, 2.5vw, 35px);
-      text-transform: uppercase;
-      line-height: 1.1;
-      background: linear-gradient(
-        135deg,
-        #bf953f 0%,
-        #fcf6ba 18%,
-        #d4af37 35%,
-        #fcf6ba 50%,
-        #d4af37 65%,
-        #fcf6ba 82%,
-        #aa771c 100%
-      );
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.5))
-              drop-shadow(0 0 80px rgba(212, 175, 55, 0.25));
-      animation: shimmer 5s ease-in-out infinite;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-
-    @keyframes shimmer {
-      0%, 100% {
-        background-position: 0% 50%;
-        filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.5))
-                drop-shadow(0 0 80px rgba(212, 175, 55, 0.25));
-      }
-      50% {
-        background-position: 100% 50%;
-        filter: drop-shadow(0 0 60px rgba(212, 175, 55, 0.7))
-                drop-shadow(0 0 100px rgba(212, 175, 55, 0.4));
-      }
-    }
-
-    .hero-subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 3vw, 1.6rem);
-      color: var(--lux);
-      opacity: 0.9;
-      letter-spacing: clamp(2px, 0.5vw, 5px);
-      margin: 2.5rem 0 1.5rem;
-      font-weight: 400;
-      font-style: italic;
-    }
-
-    .hero-subtitle span {
-      color: var(--secondary);
-      font-weight: 600;
-      font-style: normal;
-    }
-
-    .hero-description {
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: rgba(245, 230, 200, 0.85);
-      font-weight: 300;
-    }
-
-    /* ========== NOVA SEÇÃO: LOGIN/CADASTRO ========== */
-    .auth-section {
-      background: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(11,0,22,0.98));
-      padding: 5rem 2rem;
-      border-top: 2px solid var(--secondary);
-      border-bottom: 2px solid var(--secondary);
-    }
-
-    .auth-container {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .auth-title {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--secondary);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
-
-    .auth-subtitle {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      color: rgba(245, 230, 200, 0.8);
-      margin-bottom: 3rem;
-    }
-
-    .auth-buttons {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .auth-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 15px;
-      padding: 1.5rem 3rem;
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 12px;
-      transition: all 0.4s;
-      border: 2px solid;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .auth-btn-login {
-      background: linear-gradient(135deg, var(--secondary), #b9972e);
-      color: #000;
-      border-color: var(--secondary);
-      box-shadow: 0 10px 40px rgba(212,175,55,0.3);
-    }
-
-    .auth-btn-login:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 50px rgba(212,175,55,0.5);
-    }
-
-    .auth-btn-cadastro {
-      background: transparent;
-      color: var(--secondary);
-      border-color: var(--secondary);
-    }
-
-    .auth-btn-cadastro:hover {
-      background: rgba(212,175,55,0.1);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 50px rgba(212,175,55,0.2);
-    }
-
-    .auth-btn i {
-      font-size: 1.3em;
-    }
-
-    /* ========== RESTO DO CSS ORIGINAL (COPIE TODO O SEU CSS AQUI) ========== */
-    .container{max-width:1400px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
-    
-    footer {
-      background: rgba(0,0,0,0.95);
-      padding: 3rem 2rem;
-      text-align: center;
-      border-top: 1px solid var(--secondary);
-      color: rgba(245,230,200,0.7);
-    }
-
-    @media (max-width:768px){
-      .nav-toggle{display:block}
-      nav ul{
-        display:none;
-        flex-direction:column;
-        position:fixed;
-        top:70px;
-        left:0;
-        width:100%;
-        height: calc(100vh - 70px);
-        background:rgba(0,0,0,.98);
-        padding:2rem;
-        gap:2rem;
-        border-bottom:1px solid var(--secondary);
-        overflow-y: auto;
-        z-index: 1050;
-      }
-      nav ul.active{display:flex}
-      
-      .mobile-home-link {
-        display: block;
-        border-bottom: 1px solid rgba(212,175,55,0.3);
-        margin-bottom: 10px;
-        padding-bottom: 15px;
-      }
-      
-      .mobile-home-link a {
-        color: var(--secondary) !important;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .auth-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .auth-btn {
-        width: 100%;
-        max-width: 350px;
-        justify-content: center;
-      }
-    }
+    /* Hero simplificado para exemplo (Mantenha o seu original) */
+    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+    .hero h1 { font-family: 'Cinzel', serif; font-size: 3rem; color: var(--secondary); margin-bottom: 20px;}
   </style>
 </head>
 <body>
-  
-  <header id="header">
+
+  <!-- HEADER -->
+  <header>
     <div class="header-container">
-      <a href="#" class="logo">
-        <img src="https://i.ibb.co/Fbxk6mQ3/Design-sem-nome-2.png" alt="Akasha Hub Logo">
-      </a>
-      <nav>
-        <ul id="navList">
-          <li class="mobile-home-link">
-            <a href="#" onclick="window.toggleNav(); window.scrollTo(0,0);">
-              <i class="fas fa-home"></i> Home AkashaHub
-            </a>
-          </li>
-          <li><a href="https://hubcomplier.github.io/eventos/" target="_blank">Eventos</a></li>
-          <li><a href="https://hubcomplier.github.io/PATROCINADORES/" target="_blank">Patrocínio</a></li>
-          <li><a href="https://hubcomplier.github.io/akashastore/" target="_blank">Loja</a></li>
-          <li><a href="https://hubcomplier.github.io/Doutrina/" target="_blank">Doutrina Akáshica</a></li>
-          <li><a href="https://hubcomplier.github.io/MENTORIA1-1/" target="_blank">Mentoria 1:1</a></li>
-          <li><a href="login.html" style="color: var(--secondary);">Área de Membros</a></li>
-        </ul>
-      </nav>
-      
-      <button class="nav-toggle" onclick="window.toggleNav()" aria-label="Abrir menu de navegação" aria-expanded="false">
-        <i class="fas fa-bars"></i>
+      <a href="#" class="logo"><img src="https://i.ibb.co/Fbxk6mQ3/Design-sem-nome-2.png" alt="Logo"></a>
+      <button class="btn-login-nav" onclick="openAuthModal()">
+        <i class="fas fa-user"></i> Área de Membros
       </button>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO (Apenas ilustrativo, use o seu conteúdo) -->
   <section class="hero">
-    <div class="hero-video-bg">
-      <video autoplay muted loop playsinline preload="none">
-        <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1765841176/grok-video-327350ce-6e5b-4ddc-8d8d-38bb84b15273_fslmoz.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content container">
-      <div class="hero-badge">Portal de Transformação Quântica</div>
-      <h1 class="hero-title">Akasha Hub</h1>
-      <p class="hero-subtitle">
-        <span>Alinhamento Quântico</span> • Sessões VIP • Mentorias 1:1
-      </p>
-      <p class="hero-description">
-        Transforme seu campo energético, transforme sua realidade
-      </p>
-    </div>
+    <h1>Bem-vindo ao Akasha Hub</h1>
+    <p style="color:var(--lux); max-width:600px; margin-bottom:30px">
+      Para acessar seus cursos e mentorias, faça login na Área de Membros.
+    </p>
+    <button class="btn-submit" style="width:auto; padding: 15px 40px;" onclick="openAuthModal()">
+      Entrar no Portal
+    </button>
   </section>
 
-  <!-- ========== NOVA SEÇÃO: ACESSO À ÁREA DE MEMBROS ========== -->
-  <section class="auth-section" id="acessoMembros">
-    <div class="auth-container">
-      <h2 class="auth-title">
-        <i class="fas fa-crown"></i> Área de Membros
-      </h2>
-      <p class="auth-subtitle">
-        Acesse seus cursos, comunidades e conteúdos exclusivos
-      </p>
+  <!-- MODAL DE LOGIN/CADASTRO -->
+  <div id="authModal" class="modal-overlay">
+    <div class="auth-box">
+      <button class="close-modal" onclick="closeAuthModal()">&times;</button>
       
-      <div class="auth-buttons">
-        <a href="login.html" class="auth-btn auth-btn-login">
-          <i class="fas fa-sign-in-alt"></i>
-          <span>Fazer Login</span>
-        </a>
-        
-        <a href="cadastro.html" class="auth-btn auth-btn-cadastro">
-          <i class="fas fa-user-plus"></i>
-          <span>Criar Conta</span>
-        </a>
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchTab('login')">Entrar</button>
+        <button class="auth-tab" onclick="switchTab('signup')">Cadastrar</button>
       </div>
+
+      <!-- LOGIN -->
+      <form id="loginForm" class="auth-form active">
+        <div class="input-group">
+          <label>E-mail</label>
+          <input type="email" id="loginEmail" required>
+        </div>
+        <div class="input-group">
+          <label>Senha</label>
+          <input type="password" id="loginPass" required>
+        </div>
+        <button type="submit" class="btn-submit">Acessar</button>
+        <p class="error-msg" id="loginError"></p>
+        <button type="button" class="btn-google" onclick="handleGoogleLogin()">
+          <i class="fab fa-google"></i> Continuar com Google
+        </button>
+      </form>
+
+      <!-- CADASTRO -->
+      <form id="signupForm" class="auth-form">
+        <div class="input-group">
+          <label>Nome Completo</label>
+          <input type="text" id="signupName" required>
+        </div>
+        <div class="input-group">
+          <label>E-mail</label>
+          <input type="email" id="signupEmail" required>
+        </div>
+        <div class="input-group">
+          <label>Senha</label>
+          <input type="password" id="signupPass" required>
+        </div>
+        <button type="submit" class="btn-submit">Criar Conta</button>
+        <p class="error-msg" id="signupError"></p>
+        <button type="button" class="btn-google" onclick="handleGoogleLogin()">
+          <i class="fab fa-google"></i> Continuar com Google
+        </button>
+      </form>
     </div>
-  </section>
+  </div>
 
-  <!-- RESTO DO SEU CONTEÚDO ORIGINAL (Sessões, Cursos, etc) -->
-  <main class="container">
-    <!-- TODO SEU CONTEÚDO ORIGINAL AQUI -->
-  </main>
+  <script type="module">
+    // IMPORTANDO FIREBASE
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  <footer>
-    <div class="container">
-      <p style="font-size:1.4rem;margin-bottom:1rem;">© 2024 Akasha Hub • Portal de Transformação Quântica</p>
-      <p>Todas as experiências são estritamente confidenciais e profissionais.</p>
-    </div>
-  </footer>
+    // 🔴 SUAS CHAVES REAIS AQUI (COPIEI DO SEU PRIMEIRO CHAT)
+    const firebaseConfig = {
+      apiKey: "AIzaSyBQn-QirlWMbupnDJYIlZRXFNaPvbo440U",
+      authDomain: "akasha-hub.firebaseapp.com",
+      projectId: "akasha-hub",
+      storageBucket: "akasha-hub.firebasestorage.app",
+      messagingSenderId: "946774713482",
+      appId: "1:946774713482:web:12afd7ba253addab2bb973",
+      measurementId: "G-8SGV45S96F"
+    };
 
-  <script>
-    window.toggleNav = function() {
-      const navList = document.getElementById('navList');
-      const navToggle = document.querySelector('.nav-toggle');
-      navList.classList.toggle('active');
-      const expanded = navList.classList.contains('active');
-      navToggle.setAttribute('aria-expanded', expanded);
-      const icon = navToggle.querySelector('i');
-      if(expanded) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // FUNÇÕES DO MODAL
+    window.openAuthModal = () => document.getElementById('authModal').classList.add('active');
+    window.closeAuthModal = () => document.getElementById('authModal').classList.remove('active');
+    window.switchTab = (tab) => {
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+      if(tab === 'login') {
+        document.querySelectorAll('.auth-tab')[0].classList.add('active');
+        document.getElementById('loginForm').classList.add('active');
       } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+        document.querySelectorAll('.auth-tab')[1].classList.add('active');
+        document.getElementById('signupForm').classList.add('active');
       }
-    }
+    };
 
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+    // 1. LOGIN
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const pass = document.getElementById('loginPass').value;
+      try {
+        await signInWithEmailAndPassword(auth, email, pass);
+        // O redirecionamento acontece no observer abaixo
+      } catch (error) {
+        document.getElementById('loginError').style.display = 'block';
+        document.getElementById('loginError').innerText = "Erro: " + error.message;
+      }
+    });
+
+    // 2. CADASTRO (Cria e aprova automaticamente)
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('signupName').value;
+      const email = document.getElementById('signupEmail').value;
+      const pass = document.getElementById('signupPass').value;
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, pass);
+        await updateProfile(cred.user, { displayName: nome });
+        
+        // Salva no banco para controle futuro
+        await setDoc(doc(db, "users", cred.user.uid), {
+          nome: nome,
+          email: email,
+          role: "student"
+        });
+        
+      } catch (error) {
+        document.getElementById('signupError').style.display = 'block';
+        document.getElementById('signupError').innerText = "Erro: " + error.message;
+      }
+    });
+
+    // 3. GOOGLE
+    window.handleGoogleLogin = async () => {
+      const provider = new GoogleAuthProvider();
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+        
+        if (!userSnap.exists()) {
+          await setDoc(userRef, {
+            nome: user.displayName,
+            email: user.email,
+            role: "student"
+          });
+        }
+      } catch (error) {
+        alert("Erro Google: " + error.message);
+      }
+    };
+
+    // 4. OBSERVADOR (REDIRECIONA SE TIVER LOGADO)
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("Usuário logado! Redirecionando...");
+        // REDIRECIONA PARA A ÁREA DE MEMBROS
+        window.location.href = "dashboard.html";
       }
     });
   </script>
