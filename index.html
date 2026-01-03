@@ -922,7 +922,7 @@
       margin-top: 3rem;
     }
     
-    /* BOTÕES DE AÇÃO - ALTERADO AQUI */
+    /* BOTÕES DE AÇÃO */
     .audio-actions {
       display: flex;
       justify-content: center;
@@ -945,8 +945,6 @@
       border: none;
       font-family: inherit;
     }
-    
-    /* O botão de comunidade foi removido */
 
     .buy-btn {
       background: linear-gradient(135deg, var(--secondary), #b9972e);
@@ -980,7 +978,7 @@
     .communities-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem; /* Mais espaço */
+      gap: 2.5rem;
       margin-top: 3rem;
     }
 
@@ -1060,7 +1058,6 @@
 
     /* 3. ÍSIS - MARROM E OURO (CAMINHO DO MESTRE) */
     .community-isis {
-      /* Fundo Marrom Café/Bronze Profundo */
       background: linear-gradient(160deg, var(--isis-brown-dark), var(--isis-brown-light));
       border-color: var(--isis-gold);
       color: var(--isis-gold);
@@ -1068,7 +1065,7 @@
     }
     .community-isis:hover {
       box-shadow: 0 25px 60px rgba(212, 175, 55, 0.35);
-      border-color: #fff; /* Brilho extra ao passar o mouse */
+      border-color: #fff;
     }
     .community-isis .community-icon { 
       color: var(--isis-gold);
@@ -1076,19 +1073,18 @@
     }
     .community-isis .community-description, 
     .community-isis .community-features li {
-      color: rgba(255, 245, 230, 0.9); /* Texto mais claro para contraste no marrom */
+      color: rgba(255, 245, 230, 0.9);
     }
 
     /* Botão Ísis - Dourado */
     .community-isis .community-btn {
       background: linear-gradient(135deg, #B78727, #F1C40F);
-      color: #1a0f0a; /* Texto escuro para contraste */
+      color: #1a0f0a;
       box-shadow: 0 5px 25px rgba(212, 175, 55, 0.5);
     }
 
     /* 4. TRONO DE RÁ - PRETO E VERMELHO (RENASCIMENTO) */
     .community-ra {
-      /* Fundo Preto Absoluto */
       background: linear-gradient(180deg, #000000, #110000);
       border-color: var(--ra-red);
       color: var(--ra-red);
@@ -1174,27 +1170,34 @@
       opacity: 0.7;
     }
     
-    /* ========== CONTROLE DE ÁUDIO DE FUNDO ========== */
+    /* ========== CONTROLE DE ÁUDIO DE FUNDO COM VOLUME - CANTO INFERIOR ESQUERDO ========== */
     .audio-control {
       position: fixed;
       bottom: 30px;
-      right: 30px;
+      left: 30px; /* ✅ MUDADO DE right PARA left */
       z-index: 999;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 12px;
       background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(15px);
       border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 50px;
-      padding: 12px 20px;
+      border-radius: 20px;
+      padding: 15px 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
       transition: all 0.3s;
+      min-width: 200px;
     }
     
     .audio-control:hover {
       border-color: var(--secondary);
       box-shadow: 0 15px 50px rgba(212, 175, 55, 0.3);
+    }
+    
+    .audio-control-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     
     .audio-control-btn {
@@ -1209,6 +1212,7 @@
       justify-content: center;
       transition: all 0.3s;
       box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+      flex-shrink: 0;
     }
     
     .audio-control-btn:hover {
@@ -1223,6 +1227,7 @@
     .audio-info {
       display: flex;
       flex-direction: column;
+      flex: 1;
     }
     
     .audio-info span {
@@ -1266,6 +1271,118 @@
     @keyframes visualizer {
       0% { transform: scaleY(1); }
       100% { transform: scaleY(1.8); }
+    }
+    
+    /* CONTROLE DE VOLUME */
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    
+    .volume-icon {
+      color: var(--secondary);
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    
+    .volume-slider {
+      flex: 1;
+      height: 5px;
+      border-radius: 5px;
+      background: rgba(212, 175, 55, 0.2);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+    
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--secondary);
+      cursor: pointer;
+      box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+      transition: all 0.2s;
+    }
+    
+    .volume-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    }
+    
+    .volume-slider::-moz-range-thumb {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--secondary);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+      transition: all 0.2s;
+    }
+    
+    .volume-slider::-moz-range-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    }
+    
+    .volume-value {
+      color: var(--lux);
+      font-size: 0.75rem;
+      min-width: 35px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    
+    /* ========== BOTÃO WHATSAPP FLUTUANTE - PERMANECE À DIREITA ========== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 100px;
+      right: 30px; /* ✅ WhatsApp permanece à direita */
+      z-index: 998;
+    }
+    
+    .whatsapp-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      animation: whatsappPulse 2s ease-in-out infinite;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+      animation: none;
+    }
+    
+    .whatsapp-btn i {
+      font-size: 2rem;
+      color: #fff;
+    }
+    
+    @keyframes whatsappPulse {
+      0%, 100% {
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      }
+      50% {
+        box-shadow: 0 8px 35px rgba(37, 211, 102, 0.7);
+        transform: scale(1.05);
+      }
     }
     
     .scroll-progress{position:fixed;top:0;left:0;width:0;height:4px;background:var(--secondary);z-index:1001;transition:width .2s}
@@ -1378,16 +1495,31 @@
         padding: 0.7rem 1.2rem;
         letter-spacing: 0.8px;
       }
+      
+      /* ✅ MOBILE: Controle de Áudio no Canto Inferior Esquerdo */
       .audio-control {
-        bottom: 80px;
-        right: 20px;
-        padding: 10px 15px;
+        bottom: 20px;
+        left: 20px; /* ✅ Esquerda no mobile também */
+        right: auto;
+        min-width: auto;
+        max-width: calc(100vw - 100px); /* Deixa espaço pro WhatsApp */
       }
-      .audio-info {
-        display: none;
-      }
+      
       .communities-grid {
         grid-template-columns: 1fr;
+      }
+      
+      /* ✅ WhatsApp permanece à direita no mobile */
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+      }
+      .whatsapp-btn {
+        width: 55px;
+        height: 55px;
+      }
+      .whatsapp-btn i {
+        font-size: 1.7rem;
       }
     }
 
@@ -1454,18 +1586,18 @@
       footer {
         padding: 2rem 1rem;
       }
-    }
-
-    @media (max-width: 400px) {
+      
+      /* ✅ MOBILE PEQUENO: Áudio compacto e à esquerda */
       .audio-control {
-        bottom: 80px;
-        right: 15px;
+        padding: 12px 15px;
+        bottom: 15px;
         left: 15px;
-        justify-content: center;
+        max-width: calc(100vw - 90px);
       }
-      .audio-control-btn {
-        width: 40px;
-        height: 40px;
+      
+      .whatsapp-float {
+        bottom: 15px;
+        right: 15px;
       }
     }
   </style>
@@ -1477,41 +1609,52 @@
     <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1764878192/COMBO_RIQUEZA_ABSOLUTA____%C3%81UDIO_EXTREMAMENTE_PODEROSO_zqaN57FBnUo_1_u9on2b.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- CONTROLE DE ÁUDIO FLUTUANTE -->
+  <!-- ✅ CONTROLE DE ÁUDIO FLUTUANTE NO CANTO INFERIOR ESQUERDO -->
   <div class="audio-control" id="audioControl">
-    <div class="audio-visualizer paused" id="audioVisualizer">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="audio-control-top">
+      <div class="audio-visualizer paused" id="audioVisualizer">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="audio-info">
+        <span>Limpeza de Áura</span>
+        <small>Áudio de Ativação</small>
+      </div>
+      <button class="audio-control-btn" id="audioToggle" onclick="toggleBackgroundAudio()" aria-label="Controlar áudio de fundo">
+        <i class="fas fa-play" id="audioIcon"></i>
+      </button>
     </div>
-    <div class="audio-info">
-      <span>Limpeza de Áura</span>
-      <small>Áudio de Ativação</small>
+    <div class="volume-control">
+      <i class="fas fa-volume-up volume-icon" id="volumeIcon"></i>
+      <input type="range" min="0" max="100" value="70" class="volume-slider" id="volumeSlider" oninput="changeVolume(this.value)">
+      <span class="volume-value" id="volumeValue">70%</span>
     </div>
-    <button class="audio-control-btn" id="audioToggle" onclick="toggleBackgroundAudio()" aria-label="Controlar áudio de fundo">
-      <i class="fas fa-play" id="audioIcon"></i>
-    </button>
+  </div>
+
+  <!-- BOTÃO WHATSAPP FLUTUANTE (PERMANECE À DIREITA) -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/5571983448621?text=Olá!%20Vim%20do%20site%20Akasha%20Hub" target="_blank" class="whatsapp-btn" title="Fale conosco no WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
   </div>
 
   <div class="scroll-progress"></div>
   
   <header id="header">
     <div class="header-container">
-      <!-- LOGO COM IMAGEM OFICIAL -->
       <a href="#" class="logo">
         <img src="https://i.ibb.co/Fbxk6mQ3/Design-sem-nome-2.png" alt="Akasha Hub Logo">
       </a>
       <nav>
         <ul id="navList">
-          <!-- BOTÃO HOME APENAS NO MOBILE -->
           <li class="mobile-home-link">
             <a href="#" onclick="toggleNav(); window.scrollTo(0,0);">
               <i class="fas fa-home"></i> Home AkashaHub
             </a>
           </li>
-          <!-- DEMAIS ITENS -->
           <li><a href="#sessoes" onclick="switchTab('sessoes'); toggleNav()">Sessões Online</a></li>
           <li><a href="https://akashahub.github.io/eventos/" target="_blank" rel="noopener noreferrer">Eventos</a></li>
           <li><a href="https://akashahub.github.io/PATROCINADORES/" target="_blank" rel="noopener noreferrer">Patrocinio</a></li>
@@ -1522,14 +1665,13 @@
         </ul>
       </nav>
       
-      <!-- O ícone deste botão muda para um "X" quando clicado -->
       <button class="nav-toggle" onclick="toggleNav()" aria-label="Abrir menu de navegação" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </button>
     </div>
   </header>
 
-  <!-- HERO COM VÍDEO DE FUNDO - ATUALIZADO -->
+  <!-- HERO COM VÍDEO DE FUNDO -->
   <section class="hero">
     <div class="hero-video-bg">
       <video autoplay muted loop playsinline>
@@ -1539,13 +1681,10 @@
     <div class="hero-overlay"></div>
     <div class="hero-content container">
       
-      <!-- BADGE PORTAL -->
       <div class="hero-badge">Portal de Transformação Quântica</div>
       
-      <!-- TÍTULO PREMIUM MAGNÉTICO -->
       <h1 class="hero-title">Akasha Hub</h1>
       
-      <!-- SUBTÍTULO ELEGANTE -->
       <p class="hero-subtitle">
         <span>Alinhamento Quântico</span> • Sessões VIP • Mentorias 1:1
       </p>
@@ -1554,12 +1693,80 @@
         Transforme seu campo energético, transforme sua realidade
       </p>
       
-      <!-- BOTÃO PREMIUM VIP -->
       <a href="https://akashahub.github.io/PRESENCIALVIP/" target="_blank" rel="noopener noreferrer" class="btn-vip-premium">
         <i class="fas fa-crown"></i>
         <span>Presencial VIP</span>
       </a>
       
+    </div>
+  </section>
+
+  <!-- VITRINE DE LIVROS -->
+  <section id="livros" class="books-showcase">
+    <div class="container">
+      <div class="section-title">
+        <h2><i class="fas fa-book"></i> Vitrine Literária Akáshica</h2>
+        <p class="section-subtitle">Conhecimento profundo ao seu alcance</p>
+      </div>
+      
+      <p class="scroll-hint"><i class="fas fa-chevron-left"></i> Deslize para ver mais <i class="fas fa-chevron-right"></i></p>
+
+      <div class="books-track">
+        <div class="book-item">
+          <a href="https://pay.hotmart.com/P103542930V" target="_blank" class="book-cover">
+            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766938667/download_5_zmyagf.jpg" alt="Capa Livro Tantra Descomplicado e Prosperidade">
+          </a>
+          <div class="book-info">
+            <h4 class="book-title">Tantra Descomplicado e Prosperidade</h4>
+            <span class="book-price">R$ 49,90</span>
+            <a href="https://pay.hotmart.com/P103542930V" target="_blank" class="book-btn">Comprar</a>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <a href="https://pay.hotmart.com/C103563355K" target="_blank" class="book-cover">
+            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766939382/download_-_2025-12-28T132730.407_vewyei.jpg" alt="Capa Livro Autoestima Blindada">
+          </a>
+          <div class="book-info">
+            <h4 class="book-title">Autoestima Blindada</h4>
+            <span class="book-price">R$ 43,00</span>
+            <a href="https://pay.hotmart.com/C103563355K" target="_blank" class="book-btn">Comprar</a>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <a href="https://pay.hotmart.com/S103543026B" target="_blank" class="book-cover">
+            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766938576/download_-_2025-12-28T105908.411_nvho9c.jpg" alt="Capa Coletânea Alinhamento Financeiro">
+          </a>
+          <div class="book-info">
+            <h4 class="book-title">Coletânea: Alinhamento Financeiro</h4>
+            <span class="book-price">R$ 70,00</span>
+            <a href="https://pay.hotmart.com/S103543026B" target="_blank" class="book-btn">Comprar</a>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <a href="https://pay.hotmart.com/K103564499T" target="_blank" class="book-cover">
+            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766938557/download_-_2025-12-28T123455.411_yzwpyb.jpg" alt="O Escudo Invisível Como Blindar sua Mente e Energia">
+          </a>
+          <div class="book-info">
+            <h4 class="book-title">O Escudo Invisível Como Blindar sua Mente e Energia</h4>
+            <span class="book-price">R$ 30,00</span>
+            <a href="https://pay.hotmart.com/K103564499T" target="_blank" class="book-btn">Comprar</a>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <a href="https://pay.hotmart.com/U103564795C" target="_blank" class="book-cover">
+            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766938545/download_-_2025-12-28T125750.686_xtsvqc.jpg" alt="Capa Triplex Na Mente">
+          </a>
+          <div class="book-info">
+            <h4 class="book-title">Triplex na Mente</h4>
+            <span class="book-price">R$ 39,90</span>
+            <a href="https://pay.hotmart.com/U103564795C" target="_blank" class="book-btn">Comprar</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1581,7 +1788,6 @@
       </div>
       <div class="grid-container">
         
-        <!-- CARD SAGRADO FEMININO COM VÍDEO -->
         <div class="card">
           <div class="card-video">
             <video autoplay muted loop playsinline>
@@ -1602,7 +1808,6 @@
           </button>
         </div>
 
-        <!-- CARD SAGRADO MASCULINO COM VÍDEO -->
         <div class="card">
           <div class="card-video">
             <video autoplay muted loop playsinline>
@@ -1696,7 +1901,6 @@
         <h2>Mentoria 1:1 • Transformação Quântica</h2>
       </div>
 
-      <!-- VÍDEO DA MENTORIA -->
       <div class="section-video">
         <video autoplay muted loop playsinline>
           <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1766895142/WhatsApp_Video_2025-12-28_at_01.12.05_a6lbdx.mp4">
@@ -1759,76 +1963,88 @@
     </section>
   </main>
 
-  <!-- NOVA SESSÃO: VITRINE DE LIVROS (ESTEIRA) -->
-  <section id="livros" class="books-showcase">
+  <!-- COMUNIDADES AKÁSHICAS -->
+  <section class="communities-section">
     <div class="container">
       <div class="section-title">
-        <h2><i class="fas fa-book"></i> Vitrine Literária Akáshica</h2>
-        <p class="section-subtitle">Conhecimento profundo ao seu alcance</p>
+        <h2><i class="fas fa-users"></i> Comunidades Akáshicas</h2>
+        <p class="section-subtitle">4 Níveis de Evolução Espiritual • Do Iniciante ao Mestre</p>
       </div>
-      
-      <p class="scroll-hint"><i class="fas fa-chevron-left"></i> Deslize para ver mais <i class="fas fa-chevron-right"></i></p>
 
-      <div class="books-track">
-        <!-- LIVRO 1 -->
-        <div class="book-item">
-          <a href="https://pay.hotmart.com/P103542930V" target="_blank" class="book-cover">
-            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766938667/download_5_zmyagf.jpg" alt="Capa Livro Tantra Descomplicado e Prosperidade">
-          </a>
-          <div class="book-info">
-            <h4 class="book-title">Tantra Descomplicado e Prosperidade</h4>
-            <span class="book-price">R$ 49,90</span>
-            <a href="https://pay.hotmart.com/P103542930V" target="_blank" class="book-btn">Comprar</a>
+      <div class="communities-grid">
+        
+        <div class="community-card community-anubis">
+          <div class="community-icon">
+            <i class="fas fa-paw"></i>
           </div>
+          <div class="community-level">Nível 1 • Faixa Azul</div>
+          <h3 class="community-name">Anúbis</h3>
+          <p class="community-description">
+            O guardião da iniciação. Aqui você cruza o portal e inicia sua jornada de transformação quântica.
+          </p>
+          <ul class="community-features">
+            <li>Primeiros passos no alinhamento</li>
+            <li>Fundamentos do Akasha</li>
+            <li>Suporte de iniciantes</li>
+            <li>Meditações guiadas básicas</li>
+          </ul>
+          <a href="https://hotmart.com/pt-br/club/portaldeanubis" target="_blank" class="community-btn">Começar Jornada</a>
         </div>
 
-        <!-- LIVRO 2 -->
-        <div class="book-item">
-          <a href="https://pay.hotmart.com/C103563355K" target="_blank" class="book-cover">
-            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766939382/download_-_2025-12-28T132730.407_vewyei.jpg" alt="Capa Livro Autoestima Blindada">
-          </a>
-          <div class="book-info">
-            <h4 class="book-title">Autoestima Blindada</h4>
-            <span class="book-price">R$ 43,00</span>
-            <a href="https://pay.hotmart.com/C103563355K" target="_blank" class="book-btn">Comprar</a>
+        <div class="community-card community-horus">
+          <div class="community-icon">
+            <i class="fas fa-dove"></i>
           </div>
+          <div class="community-level">Nível 2 • Faixa Roxa</div>
+          <h3 class="community-name">Hórus</h3>
+          <p class="community-description">
+            Visão clara e poder pessoal. Você passou da iniciação e agora forja sua identidade espiritual.
+          </p>
+          <ul class="community-features">
+            <li>Domínio das técnicas básicas</li>
+            <li>Formação de identidade akáshica</li>
+            <li>Práticas intermediárias</li>
+            <li>Comunidade de apoio mútuo</li>
+          </ul>
+          <a href="https://hotmart.com/pt-br/club/caminhodehorus" target="_blank" class="community-btn">Evoluir Consciência</a>
         </div>
 
-        <!-- LIVRO 3 -->
-        <div class="book-item">
-          <a href="https://pay.hotmart.com/S103543026B" target="_blank" class="book-cover">
-            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766938576/download_-_2025-12-28T105908.411_nvho9c.jpg" alt="Capa Coletânea Alinhamento Financeiro">
-          </a>
-          <div class="book-info">
-            <h4 class="book-title">Coletânea: Alinhamento Financeiro</h4>
-            <span class="book-price">R$ 70,00</span>
-            <a href="https://pay.hotmart.com/S103543026B" target="_blank" class="book-btn">Comprar</a>
+        <div class="community-card community-isis">
+          <div class="community-icon">
+            <i class="fas fa-crown"></i>
           </div>
+          <div class="community-level">Nível 3 • Caminho Dourado</div>
+          <h3 class="community-name">Ísis</h3>
+          <p class="community-description">
+            A grande mãe iniciadora. Com identidade formada e experiência consolidada, você caminha rumo à maestria.
+          </p>
+          <ul class="community-features">
+            <li>Domínio energético avançado</li>
+            <li>Experiência profunda</li>
+            <li>Identidade espiritual consolidada</li>
+            <li>Iniciação ao caminho de mestre</li>
+          </ul>
+          <a href="https://hotmart.com/pt-br/club/templodeisis" target="_blank" class="community-btn">Caminho da Maestria</a>
         </div>
 
-        <!-- LIVRO 4 -->
-        <div class="book-item">
-          <a href="https://pay.hotmart.com/K103564499T" target="_blank" class="book-cover">
-            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766938557/download_-_2025-12-28T123455.411_yzwpyb.jpg" alt="O Escudo Invisível Como Blindar sua Mente e Energia">
-          </a>
-          <div class="book-info">
-            <h4 class="book-title">O Escudo Invisível Como Blindar sua Mente e Energia</h4>
-            <span class="book-price">R$ 30,00</span>
-            <a href="https://pay.hotmart.com/K103564499T" target="_blank" class="book-btn">Comprar</a>
+        <div class="community-card community-ra">
+          <div class="community-icon">
+            <i class="fas fa-sun"></i>
           </div>
+          <div class="community-level">Nível 4 • Renascimento Solar</div>
+          <h3 class="community-name">Trono de Rá</h3>
+          <p class="community-description">
+            O renascer na luz. Mestre/Mestra com visão elevada, você vê tudo com novos olhos iluminados.
+          </p>
+          <ul class="community-features">
+            <li>Visão de mestre elevado</li>
+            <li>Consciência expandida permanente</li>
+            <li>Integração total do conhecimento</li>
+            <li>Renascimento espiritual completo</li>
+          </ul>
+          <a href="https://hotmart.com/pt-br/club/tronodera" target="_blank" class="community-btn">Ascender ao Trono</a>
         </div>
 
-        <!-- LIVRO 5 -->
-        <div class="book-item">
-          <a href="https://pay.hotmart.com/U103564795C" target="_blank" class="book-cover">
-            <img src="https://res.cloudinary.com/dlueoyrhe/image/upload/v1766938545/download_-_2025-12-28T125750.686_xtsvqc.jpg" alt="Capa Triplex Na Mente">
-          </a>
-          <div class="book-info">
-            <h4 class="book-title">Triplex na Mente</h4>
-            <span class="book-price">R$ 39,90</span>
-            <a href="https://pay.hotmart.com/U103564795C" target="_blank" class="book-btn">Comprar</a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1893,7 +2109,7 @@
         </div>
       </div>
 
-      <!-- ÁUDIOS PREMIUM (BLOQUEADOS) -->
+      <!-- ÁUDIOS PREMIUM -->
       <div class="audio-category premium-section">
         <h3 class="category-title premium-title"><i class="fas fa-crown"></i> Áudios Premium</h3>
         <p class="category-description">Conteúdo exclusivo para membros da comunidade Akasha</p>
@@ -1991,105 +2207,13 @@
         </div>
       </div>
 
-      <!-- BOTÕES DE AÇÃO - MODIFICADO AQUI -->
       <div class="audio-actions">
-        <!-- Botão de Comunidade Removido -->
         <a href="https://akashahub.github.io/bibliotecadeaudios/" target="_blank" rel="noopener noreferrer" class="audio-btn buy-btn">
           <i class="fas fa-shopping-cart"></i>
           Comprar Pack de Áudios
         </a>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ========== SEÇÃO: COMUNIDADES AKÁSHICAS ATUALIZADA ========== -->
-  <section class="communities-section">
-    <div class="container">
-      <div class="section-title">
-        <h2><i class="fas fa-users"></i> Comunidades Akáshicas</h2>
-        <p class="section-subtitle">4 Níveis de Evolução Espiritual • Do Iniciante ao Mestre</p>
-      </div>
-
-      <div class="communities-grid">
-        
-        <!-- 1. ANÚBIS - FAIXA AZUL (INICIAÇÃO) -->
-        <div class="community-card community-anubis">
-          <div class="community-icon">
-            <i class="fas fa-paw"></i>
-          </div>
-          <div class="community-level">Nível 1 • Faixa Azul</div>
-          <h3 class="community-name">Anúbis</h3>
-          <p class="community-description">
-            O guardião da iniciação. Aqui você cruza o portal e inicia sua jornada de transformação quântica.
-          </p>
-          <ul class="community-features">
-            <li>Primeiros passos no alinhamento</li>
-            <li>Fundamentos do Akasha</li>
-            <li>Suporte de iniciantes</li>
-            <li>Meditações guiadas básicas</li>
-          </ul>
-          <a href="https://hotmart.com/pt-br/club/portaldeanubis" target="_blank" class="community-btn">Começar Jornada</a>
-        </div>
-
-        <!-- 2. HÓRUS - FAIXA ROXA (IDENTIDADE E DOMÍNIO) -->
-        <div class="community-card community-horus">
-          <div class="community-icon">
-            <i class="fas fa-dove"></i>
-          </div>
-          <div class="community-level">Nível 2 • Faixa Roxa</div>
-          <h3 class="community-name">Hórus</h3>
-          <p class="community-description">
-            Visão clara e poder pessoal. Você passou da iniciação e agora forja sua identidade espiritual.
-          </p>
-          <ul class="community-features">
-            <li>Domínio das técnicas básicas</li>
-            <li>Formação de identidade akáshica</li>
-            <li>Práticas intermediárias</li>
-            <li>Comunidade de apoio mútuo</li>
-          </ul>
-          <a href="https://hotmart.com/pt-br/club/caminhodehorus" target="_blank" class="community-btn">Evoluir Consciência</a>
-        </div>
-
-        <!-- 3. ÍSIS - MARROM E OURO (CAMINHO DO MESTRE) -->
-        <div class="community-card community-isis">
-          <div class="community-icon">
-            <i class="fas fa-crown"></i>
-          </div>
-          <div class="community-level">Nível 3 • Caminho Dourado</div>
-          <h3 class="community-name">Ísis</h3>
-          <p class="community-description">
-            A grande mãe iniciadora. Com identidade formada e experiência consolidada, você caminha rumo à maestria.
-          </p>
-          <ul class="community-features">
-            <li>Domínio energético avançado</li>
-            <li>Experiência profunda</li>
-            <li>Identidade espiritual consolidada</li>
-            <li>Iniciação ao caminho de mestre</li>
-          </ul>
-          <a href="https://hotmart.com/pt-br/club/templodeisis" target="_blank" class="community-btn">Caminho da Maestria</a>
-        </div>
-
-        <!-- 4. TRONO DE RÁ - PRETO E VERMELHO (RENASCIMENTO) -->
-        <div class="community-card community-ra">
-          <div class="community-icon">
-            <i class="fas fa-sun"></i>
-          </div>
-          <div class="community-level">Nível 4 • Renascimento Solar</div>
-          <h3 class="community-name">Trono de Rá</h3>
-          <p class="community-description">
-            O renascer na luz. Mestre/Mestra com visão elevada, você vê tudo com novos olhos iluminados.
-          </p>
-          <ul class="community-features">
-            <li>Visão de mestre elevado</li>
-            <li>Consciência expandida permanente</li>
-            <li>Integração total do conhecimento</li>
-            <li>Renascimento espiritual completo</li>
-          </ul>
-          <a href="https://hotmart.com/pt-br/club/tronodera" target="_blank" class="community-btn">Ascender ao Trono</a>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -2107,14 +2231,11 @@
       const navList = document.getElementById('navList');
       const navToggle = document.querySelector('.nav-toggle');
 
-      // Alternar classes
       navList.classList.toggle('active');
 
-      // Acessibilidade
       const expanded = navList.classList.contains('active');
       navToggle.setAttribute('aria-expanded', expanded);
       
-      // Mudar ícone
       const icon = navToggle.querySelector('i');
       if(expanded) {
         icon.classList.remove('fa-bars');
@@ -2127,23 +2248,19 @@
 
     // ======= TAB LOGIC =======
     function switchTab(tabId) {
-      // Esconder todos os conteúdos
       document.querySelectorAll('.tab-content').forEach(content => {
         content.classList.remove('active');
       });
       
-      // Desativar todos os botões
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
       });
 
-      // Ativar conteúdo selecionado
       const selectedContent = document.getElementById(tabId);
       if(selectedContent) {
         selectedContent.classList.add('active');
       }
 
-      // Ativar botão
       const btns = document.querySelectorAll('.tab-btn');
       btns.forEach(btn => {
         if(btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)) {
@@ -2153,24 +2270,27 @@
     }
 
     function goToAudios() {
-      // Rolar suavemente para a seção de audios
       document.getElementById('audios').scrollIntoView({behavior: 'smooth'});
       
-      // Remover active dos botões de tabs
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       
-      // Ativar visualmente o botão biblioteca
       const libBtn = document.querySelector('.tab-btn[onclick*="goToAudios"]');
       if(libBtn) libBtn.classList.add('active');
     }
 
-    // ======= AUDIO PLAYER LOGIC =======
+    // ======= AUDIO PLAYER LOGIC COM VOLUME =======
     const audio = document.getElementById('backgroundAudio');
     const audioVisualizer = document.getElementById('audioVisualizer');
     const audioIcon = document.getElementById('audioIcon');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeValue = document.getElementById('volumeValue');
+    const volumeIcon = document.getElementById('volumeIcon');
     let isPlaying = false;
+
+    // Definir volume inicial
+    audio.volume = 0.7;
 
     function toggleBackgroundAudio() {
       if (isPlaying) {
@@ -2185,6 +2305,20 @@
         audioIcon.classList.add('fa-pause');
       }
       isPlaying = !isPlaying;
+    }
+
+    function changeVolume(value) {
+      audio.volume = value / 100;
+      volumeValue.textContent = value + '%';
+      
+      // Mudar ícone baseado no volume
+      if (value == 0) {
+        volumeIcon.className = 'fas fa-volume-mute volume-icon';
+      } else if (value < 50) {
+        volumeIcon.className = 'fas fa-volume-down volume-icon';
+      } else {
+        volumeIcon.className = 'fas fa-volume-up volume-icon';
+      }
     }
 
     function playFreeAudio(element, title) {
