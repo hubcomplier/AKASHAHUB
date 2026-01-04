@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alinhamento do Sagrado Masculino | Yan Simon</title>
+    
+    <!-- Fontes de Poder -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Old+Standard+TT:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #000000;
+            --obsidian: #0a0a0a;
+            --gold: #B8860B;
+            --bronze: #CD7F32;
+            --blood: #8B0000;
+            --steel: #2C2C2C;
+            --ember: #FF3800;
+            --text: #E8E8E8;
+            --accent-grad: linear-gradient(135deg, #B8860B, #FFD700, #8B6508, #FFA500, #B8860B);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        
+        body { 
+            background: #000;
+            color: var(--text); 
+            font-family: 'Montserrat', sans-serif; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { 
+            font-family: 'Cinzel', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            font-weight: 900;
+        }
+        
+        .gold-text { 
+            background: var(--accent-grad); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            font-weight: 900;
+        }
+        
+        .italic {
+            font-family: 'Old Standard TT', serif;
+            font-style: italic;
+            color: var(--bronze);
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* BOTÃO DE GUERREIRO */
+        .btn-warrior {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 22px 70px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-decoration: none;
+            transition: all .5s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(184, 134, 11, 0.3);
+        }
+        
+        .btn-warrior::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: var(--accent-grad);
+            transition: all .6s;
+            z-index: -1;
+        }
+
+        .btn-warrior:hover {
+            color: #000;
+            border-color: var(--gold);
+            box-shadow: 0 0 50px rgba(184, 134, 11, 0.8);
+            transform: scale(1.05);
+        }
+
+        .btn-warrior:hover::before { left: 0; }
+
+        /* HERO MASCULINO - COM IMAGEM DE FUNDO */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        /* Imagem de fundo do Hero */
+        .hero-bg-image {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/dlueoyrhe/image/upload/v1765948603/download_-_2025-12-11T012929.076_kehjfg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        /* Overlay escuro sobre a imagem */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* Conteúdo do hero acima da imagem */
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero::before {
+            content: 'ᛉ';
+            position: absolute;
+            top: 15%;
+            left: 8%;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.2;
+            animation: pulse 8s infinite;
+            z-index: 2;
+        }
+
+        .hero::after {
+            content: 'ᚦ';
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            font-size: 5rem;
+            color: var(--ember);
+            opacity: 0.15;
+            animation: pulse 10s infinite;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.08; transform: scale(1); }
+            50% { opacity: 0.2; transform: scale(1.1); }
+        }
+
+        .hero h1 { 
+            font-size: 4rem; 
+            margin: 30px 0; 
+            line-height: 1.1; 
+            font-weight: 900;
+        }
+
+        .hero p { 
+            max-width: 700px; 
+            margin: 0 auto 50px; 
+            color: #ddd; 
+            font-size: 1.2rem; 
+            font-weight: 400;
+        }
+
+        .status-badge {
+            background: rgba(184,134,11,0.25);
+            border: 1px solid var(--gold);
+            padding: 10px 30px;
+            font-size: 0.85rem;
+            letter-spacing: 6px;
+            color: var(--gold);
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* STEPS MASCULINOS */
+        .steps-section { 
+            padding: 120px 0; 
+            background: var(--obsidian);
+            border-top: 1px solid #1a1a1a;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 80px;
+        }
+
+        .step-card {
+            border-left: 4px solid var(--gold);
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            transform: rotate(45deg);
+        }
+
+        .step-num { 
+            font-family: 'Cinzel', serif; 
+            font-size: 2.8rem; 
+            color: var(--gold); 
+            margin-bottom: 15px; 
+            font-weight: 900;
+        }
+
+        .step-card h3 { 
+            color: var(--text); 
+            margin-bottom: 15px; 
+            font-size: 1.4rem;
+        }
+
+        .step-card p { 
+            font-size: 1rem; 
+            color: #999; 
+            line-height: 1.8;
+        }
+
+        /* Yan Simon Section */
+        .kael-section {
+            padding: 140px 0;
+            background: linear-gradient(180deg, #000 0%, #0a0000 100%);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .kael-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* MEDIA CONTAINER (IMAGEM + VÍDEO) */
+        .media-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .kael-img {
+            width: 300px;
+            height: 420px;
+            object-fit: cover;
+            filter: grayscale(80%) contrast(1.3) brightness(0.9);
+            transition: 0.7s;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 40px rgba(184,134,11,0.4);
+        }
+        
+        .kael-img:hover {
+            filter: grayscale(0%) contrast(1.2);
+            box-shadow: 0 0 80px rgba(184,134,11,0.8);
+            transform: scale(1.02);
+        }
+
+        /* VÍDEO ESTILIZADO */
+        .kael-video-container {
+            position: relative;
+        }
+
+        .kael-video {
+            width: 300px;
+            height: 420px;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 40px rgba(184,134,11,0.4);
+            transition: 0.7s;
+            background: #000;
+        }
+
+        .kael-video:hover {
+            box-shadow: 0 0 80px rgba(184,134,11,0.8);
+            transform: scale(1.02);
+        }
+
+        .video-label {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* PREÇO MASCULINO - COM VÍDEO DE FUNDO */
+        .price-section { 
+            padding: 140px 0; 
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Vídeo de fundo da seção de preço */
+        .price-bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        /* Overlay escuro sobre o vídeo */
+        .price-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1;
+        }
+
+        /* Conteúdo acima do vídeo */
+        .price-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .price-box {
+            border: 3px double var(--gold);
+            padding: 80px 50px;
+            max-width: 650px;
+            margin: 0 auto;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .price-box::before, .price-box::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--gold);
+        }
+
+        .price-box::before { top: -15px; left: -15px; border-right: none; border-bottom: none; }
+        .price-box::after { bottom: -15px; right: -15px; border-left: none; border-top: none; }
+
+        /* RESPONSIVO */
+        @media (max-width: 992px) {
+            .kael-layout {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .media-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .kael-img, .kael-video { 
+                width: 280px; 
+                height: 380px; 
+            }
+            .media-container {
+                gap: 20px;
+            }
+            
+            /* Ocultar vídeo de fundo em mobile para economizar dados */
+            .price-bg-video {
+                display: none;
+            }
+            
+            .price-section {
+                background: #000;
+            }
+            
+            .hero-bg-image {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .kael-img, .kael-video { 
+                width: 250px; 
+                height: 340px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO DO GUERREIRO -->
+    <section class="hero">
+        <div class="hero-bg-image"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container">
+            <div class="status-badge">ÚLTIMAS VAGAS</div>
+            
+            <h1>Retorno do <br><span class="gold-text">Guardião Rei</span></h1>
+            
+            <p>
+                Um confronto direto com seu campo de força. 
+                Corte os bloqueios, reacenda o fogo interior e receba a iniciação de presença com Yan Simon.
+            </p>
+
+            <a href=" https://go.hotmart.com/Q103262214D?dp=1" target="_blank" class="btn-warrior">
+                Reivindicar Meu Poder
+            </a>
+        </div>
+    </section>
+
+    <!-- TRILHA DO GUARDIÃO -->
+    <section class="steps-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem;">A Iniciação</h2>
+            <p style="text-align: center; color: #888; max-width: 700px; margin: 0 auto 60px; font-size: 1.1rem;">
+                Em 60 minutos de confronto energético, você será levado ao limite do seu campo para emergir renovado:
+            </p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h3>Diagnóstico do Campo</h3>
+                    <p>Identificação precisa dos bloqueios que drenam sua força, autoridade e capacidade de conquista.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h3>Corte & Queima</h3>
+                    <p>Limpeza profunda com a espada energética akáshica. Queima de padrões de medo, escassez e submissão.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h3>Coroação do Rei</h3>
+                    <p>Ativação do seu centro de poder (3º chakra), presença magnética e direção inabalável. Você sai como soberano do seu reino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yan Simon -->
+    <section class="kael-section">
+        <div class="container kael-layout">
+            
+            <!-- CONTAINER COM IMAGEM E VÍDEO LADO A LADO -->
+            <div class="media-container">
+                <!-- Imagem do Yan Simon -->
+                <div>
+                    <img class="kael-img" src="https://i.ibb.co/r23S97Zw/Whats-App-Image-2025-11-26-at-13-20-51.jpg" alt="Yan Simon - O Guardião do Fogo">
+                </div>
+                
+                <!-- Vídeo ao lado -->
+                <div class="kael-video-container">
+                    <video 
+                        class="kael-video" 
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline
+                        poster="https://i.ibb.co/r23S97Zw/Whats-App-Image-2025-11-26-at-13-20-51.jpg"
+                    >
+                        <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1764808918/generated_video_4_bd2ivx.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                    <p class="video-label">⚔ A Convocação ⚔</p>
+                </div>
+            </div>
+            
+            <!-- Texto sobre Yan Simon -->
+            <div style="max-width: 450px;">
+                <div class="italic">O Guardião do Fogo</div>
+                <h2 style="font-size: 2.8rem; margin: 15px 0; color: var(--gold);">Yan Simon</h2>
+                <p style="color: #ccc; margin-bottom: 25px; font-size: 1.1rem; line-height: 1.9;">
+                    Mestre de iniciações masculinas e portador da linhagem do fogo sagrado. Yan forjou uma metodologia implacável que une o poder ancestral das ordens guerreiras com a precisão da engenharia quântica.
+                </p>
+                <p style="color: #bbb; line-height: 1.9;">
+                    Sua sessão não é conversa. É um rito de passagem para homens que decidiram parar de sobreviver e começar a dominar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INVESTIDURA -->
+    <section class="price-section">
+        <video class="price-bg-video" autoplay muted loop playsinline>
+            <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1765949811/generated_video_-_2025-12-17T023404.117_bkruxe.mp4" type="video/mp4">
+        </video>
+        <div class="price-overlay"></div>
+        
+        <div class="container">
+            <div class="price-box">
+                <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Sessão Individual do Sagrado Masculino</h2>
+                <p style="color: #888; font-size: 0.95rem; margin-bottom: 50px;">Online via Zoom • 60 minutos de confronto direto</p>
+
+                <div style="margin-bottom: 50px;">
+                    <span style="font-size: 4rem; font-family: 'Cinzel', serif; color: var(--gold); font-weight: 900;">R$ 150,00</span>
+                </div>
+
+                <a href=" https://go.hotmart.com/Q103262214D?dp=1" target="_blank" class="btn-warrior" style="width: 100%; text-align: center; font-size: 1.2rem;">
+                    Assumir Meu Trono
+                </a>
+
+                <p style="margin-top: 30px; font-size: 0.9rem; color: var(--bronze);">
+                    *Horário marcado após confirmação, apenas para quem está pronto.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ DO REINO -->
+    <footer style="text-align: center; padding: 80px 20px; color: #555; border-top: 2px solid var(--gold); background: #000;">
+        <p style="font-size: 1.8rem; color: var(--gold); margin-bottom: 10px; letter-spacing: 5px;">YAN SIMON</p>
+        <p style="font-size: 0.9rem; color: #888;">© 2024 • Irmandade do Fogo Sagrado</p>
+        <p style="margin-top: 20px; font-style: italic; color: var(--bronze);">
+            "O homem não nasce rei. Ele se torna."
+        </p>
+    </footer>
+
+</body>
+</html>
