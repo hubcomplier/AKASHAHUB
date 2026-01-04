@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessão de Alinhamento do Sagrado Feminino | Shakti Akasha</title>
+    
+    <!-- Fontes de Luxo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- SAGRADO FEMININO LUXO --- */
+        :root {
+            --bg: #0a0008;
+            --rose-gold: #E8B4B8;
+            --gold: #D4AF37;
+            --pearl: #FDF4E3;
+            --violet: #8B5A8C;
+            --rose-grad: linear-gradient(135deg, #E8B4B8, #FDF4E3, #D4AF37, #FFC0CB, #DDA0DD);
+            --text: #F5E6E8;
+            --panel: #100010;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        
+        body { 
+            background: #0a0008;
+            color: var(--text); 
+            font-family: 'Montserrat', sans-serif; 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+
+        h1, h2, h3 { 
+            font-family: 'Cinzel', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-weight: 400;
+        }
+        
+        .gold-text { 
+            background: var(--rose-grad); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            font-weight: 600; 
+        }
+        
+        .italic {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--rose-gold);
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+
+        /* --- BOTÃO SAGRADO FEMININO --- */
+        .btn-session {
+            display: inline-block;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--rose-gold);
+            color: var(--pearl);
+            padding: 20px 60px;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 3px;
+            transition: all .4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-session::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0%; height: 100%;
+            background: var(--rose-grad);
+            transition: all .4s;
+            z-index: -1;
+        }
+
+        .btn-session:hover {
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 0 40px rgba(232, 180, 184, 0.4);
+        }
+
+        .btn-session:hover::before { width: 100%; }
+
+        /* --- HERO FEMININO (COM IMAGEM DE FUNDO) --- */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            position: relative;
+            padding: 60px 0;
+            /* IMAGEM DE FUNDO APLICADA AQUI */
+            background: linear-gradient(to bottom, rgba(10,0,8,0.5), rgba(0,0,0,0.9)),
+                        url('https://res.cloudinary.com/dlueoyrhe/image/upload/v1765948152/download_-_2025-12-11T013526.329_mehsur.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efeito parallax suave */
+        }
+
+        .hero h1 { font-size: 3rem; margin: 20px 0; line-height: 1.3; font-weight: 400; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        .hero p { max-width: 650px; margin: 0 auto 40px; color: #E8C4C8; font-weight: 300; font-size: 1.1rem; text-shadow: 0 0 10px rgba(0,0,0,0.8); }
+
+        .status-badge {
+            background: rgba(0,0,0,0.6);
+            border: 1px solid var(--rose-gold);
+            padding: 8px 25px;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            color: var(--pearl);
+            display: inline-block;
+            backdrop-filter: blur(4px);
+        }
+
+        /* --- STEPS FEMININOS --- */
+        .steps-section { 
+            padding: 100px 0; 
+            background: linear-gradient(180deg, #000 0%, #100010 100%);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step-card {
+            border-left: 2px solid var(--rose-gold);
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .step-card::before {
+            content: '❋';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            color: var(--rose-gold);
+            background: #100010;
+            padding: 0 5px;
+        }
+
+        .step-num { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 2rem; 
+            color: var(--violet); 
+            margin-bottom: 10px; 
+            font-weight: 300;
+        }
+        .step-card h3 { color: var(--pearl); margin-bottom: 15px; font-weight: 400; }
+        .step-card p { font-size: 0.95rem; color: #C8A8AA; line-height: 1.7; }
+
+        /* --- SHAKTI AKASHA SECTION --- */
+        .yan-section {
+            padding: 120px 0;
+            border-top: 1px solid rgba(232,180,184,0.2);
+            border-bottom: 1px solid rgba(232,180,184,0.2);
+            background: radial-gradient(circle at center, rgba(232,180,184,0.03) 0%, transparent 60%);
+        }
+        
+        .yan-layout {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .media-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .yan-img {
+            width: 280px;
+            height: 380px;
+            object-fit: cover;
+            filter: sepia(20%) contrast(1.1);
+            transition: 0.5s;
+            border: 1px solid var(--rose-gold);
+            border-radius: 200px 200px 0 0;
+            box-shadow: 0 0 30px rgba(232,180,184,0.2);
+        }
+        
+        .yan-img:hover {
+            filter: sepia(0%) contrast(1.1);
+            border-color: var(--pearl);
+            box-shadow: 0 0 50px rgba(232,180,184,0.4);
+        }
+
+        .yan-video-container { position: relative; }
+
+        .yan-video {
+            width: 280px;
+            height: 380px;
+            object-fit: cover;
+            border: 1px solid var(--rose-gold);
+            border-radius: 200px 200px 0 0;
+            box-shadow: 0 0 30px rgba(232,180,184,0.2);
+            transition: 0.5s;
+            background: #000;
+        }
+
+        .yan-video:hover {
+            border-color: var(--pearl);
+            box-shadow: 0 0 50px rgba(232,180,184,0.4);
+        }
+
+        .video-label {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--rose-gold);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        /* --- PRICING FEMININO (COM VÍDEO DE FUNDO) --- */
+        .price-section { 
+            padding: 140px 0; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+            /* Fundo transparente para ver o vídeo */
+            background: transparent;
+        }
+
+        /* Vídeo de Fundo */
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.7; /* Suavizar o brilho do vídeo */
+        }
+
+        /* Overlay para escurecer o vídeo e permitir leitura */
+        .price-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(10,0,8,0.7) 0%, #0a0008 100%);
+            z-index: 1;
+        }
+        
+        .price-box {
+            border: 1px solid var(--rose-gold);
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            /* Fundo semi-transparente para destacar sobre o vídeo */
+            background: rgba(10, 0, 8, 0.6);
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .price-box::before,
+        .price-box::after {
+            content: '◈';
+            position: absolute;
+            color: var(--rose-gold);
+            font-size: 1.5rem;
+        }
+
+        .price-box::before { top: 20px; left: 20px; }
+        .price-box::after { bottom: 20px; right: 20px; }
+
+        /* --- LUNAR PHASES --- */
+        .moon-phases {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            font-size: 1.5rem;
+            color: var(--pearl);
+            opacity: 0.6;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 992px) {
+            .yan-layout { flex-direction: column; text-align: center; }
+            .media-container { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .yan-layout { text-align: center; }
+            .yan-img, .yan-video { width: 250px; height: 340px; }
+            .media-container { gap: 20px; }
+            .hero { background-attachment: scroll; } /* Melhor performance no mobile */
+        }
+
+        @media (max-width: 480px) {
+            .yan-img, .yan-video { width: 220px; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SAGRADO FEMININO -->
+    <section class="hero">
+        <div class="container">
+            <div class="status-badge">CÍRCULO ÍNTIMO</div>
+            
+            <h1>Despertar do <br><span class="gold-text">Sagrado Feminino</span></h1>
+            
+            <div class="moon-phases">
+                <span>🌑</span>
+                <span>🌒</span>
+                <span>🌓</span>
+                <span>🌔</span>
+                <span>🌕</span>
+            </div>
+            
+            <p>
+                Uma jornada de reconexão com sua essência divina feminina.
+                Liberte-se das amarras ancestrais, desperte sua intuição e receba o alinhamento energético profundo com Yan Simon.
+            </p>
+
+            <a href="https://hotmart.com/pt-br/marketplace/produtos/sessao-alinhamento-online/N101827105S" target="_blank" class="btn-session">
+                Reservar Meu Alinhamento
+            </a>
+        </div>
+    </section>
+
+    <!-- JORNADA FEMININA -->
+    <section class="steps-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 20px; font-weight: 400;">O Alinhamento de Feminino</h2>
+            <p style="text-align: center; color: #C8A8AA; max-width: 650px; margin: 0 auto;">
+                Não é apenas uma sessão. É um portal de iniciação. Em aproximadamente 60 minutos sagrados, você irá experienciar:
+            </p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">Lua Nova</div>
+                    <h3>Leitura do Campo Feminino</h3>
+                    <p>Identificação das memórias uterinas, bloqueios ancestrais e padrões que impedem sua força feminina de fluir em plenitude.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">Lua Crescente</div>
+                    <h3>Purificação & Despertar</h3>
+                    <p>Limpeza energética do útero sagrado, ativação da kundalini feminina e reconexão com a sabedoria ancestral de suas antepassadas.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">Lua Cheia</div>
+                    <h3>Incorporação da Deusa</h3>
+                    <p>Você sairá radiante, com sua energia feminina desperta, magnetismo natural ativado e clareza sobre seu poder de criação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAKTI AKASHA -->
+    <section class="yan-section">
+        <div class="container yan-layout">
+            
+            <!-- CONTAINER COM IMAGEM E VÍDEO LADO A LADO -->
+            <div class="media-container">
+                <!-- Imagem do Yan Simon -->
+                <div>
+                    <img class="yan-img" src="https://i.ibb.co/r23S97Zw/Whats-App-Image-2025-11-26-at-13-20-51.jpg" alt="Yan Simon - Guardião do Sagrado Feminino">
+                </div>
+                
+                <!-- Vídeo ao lado -->
+                <div class="yan-video-container">
+                    <video 
+                        class="yan-video" 
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline
+                        poster="https://i.ibb.co/r23S97Zw/Whats-App-Image-2025-11-26-at-13-20-51.jpg"
+                    >
+                        <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1765948284/generated_video_43_sxpjam.mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                    <p class="video-label">✦ Convocação das Guardiãs ✦</p>
+                </div>
+            </div>
+            
+            <!-- Texto sobre Yan Simon -->
+            <div style="max-width: 450px;">
+                <div class="italic">Olá, Guardiã</div>
+                <h2 style="font-size: 2.2rem; margin-bottom: 20px; margin-top: 10px; font-weight: 400;">Yan Simon</h2>
+                <p style="color: #E8C4C8; margin-bottom: 20px; line-height: 1.8;">
+                    Guardião dos mistérios femininos e facilitador de processos de despertar. Yan, criado por mulheres, desenvolveu uma metodologia única que une os ensinamentos das antigas sacerdotisas aos códigos quânticos do feminino moderno.
+                </p>
+                <p style="color: #E8C4C8; line-height: 1.8;">
+                    Sua sessão é um ritual de passagem para mulheres que estão prontas para assumir seu trono interior e irradiar sua medicina única no mundo.
+                </p>
+
+                <div class="moon-phases" style="justify-content: flex-start; margin-top: 25px;">
+                    <span>✦</span>
+                    <span>◈</span>
+                    <span>❋</span>
+                    <span>✧</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA SAGRADA (BACKGROUND DE VÍDEO) -->
+    <section class="price-section">
+        <!-- Vídeo de Fundo -->
+        <video class="bg-video" autoplay loop muted playsinline>
+            <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1765946862/generated_video_50_rvqhfu.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Overlay Escuro -->
+        <div class="price-overlay"></div>
+
+        <div class="container">
+            <div class="price-box">
+                <h2 style="font-size: 1.8rem; margin-bottom: 10px; font-weight: 400;">Sessão Individual do Sagrado Feminino</h2>
+                <p style="color: #C8A8AA; font-size: 0.9rem; margin-bottom: 40px;">Online via Zoom • Duração: 60 minutos de imersão</p>
+
+                <div style="margin-bottom: 40px;">
+                    <span style="font-size: 3rem; font-family: 'Cinzel', serif; color: var(--pearl);">R$ 150,00</span>
+                </div>
+
+                <a href="https://hotmart.com/pt-br/marketplace/produtos/sessao-alinhamento-online/N101827105S" target="_blank" class="btn-session" style="width: 100%; text-align: center;">
+                    Despertar Meu Feminino Sagrado
+                </a>
+
+                <p style="margin-top: 25px; font-size: 0.8rem; color: #8B5A8C;">
+                    ✦ Horário alinhado com seu ciclo lunar pessoal ✦
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER FEMININO -->
+    <footer style="text-align: center; padding: 50px 20px; color: #8B5A8C; font-size: 0.8rem; border-top: 1px solid rgba(232,180,184,0.1); background: #0a0008;">
+        <div class="moon-phases" style="opacity: 0.3; margin-bottom: 20px;">
+            <span>☽</span>
+            <span>◯</span>
+            <span>☾</span>
+        </div>
+        <p> SHAKTI AKASHA © 2024 • Templo do Sagrado Feminino</p>
+        <p style="margin-top: 10px; font-style: italic; color: var(--rose-gold);">Honrando a Deusa em cada mulher</p>
+    </footer>
+
+</body>
+</html>
