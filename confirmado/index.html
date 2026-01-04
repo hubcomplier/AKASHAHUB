@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✦ Compra Concluída — AKASHA STORE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Cinzel:wght@400;500;600&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --void: #0a0a0a;
+            --obsidian: #111111;
+            --smoke: #1a1a1a;
+            --ash: #2a2a2a;
+            --silver: #888888;
+            --bone: #f5f0e8;
+            --gold: #c9a961;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Space Grotesk',sans-serif; background:var(--void); color:var(--bone); min-height:100vh; overflow-x:hidden; }
+
+        .particles { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
+        .particle { position:absolute; width:2px; height:2px; background:var(--gold); border-radius:50%; opacity:0; animation:floatParticle 15s infinite ease-in-out; }
+        @keyframes floatParticle { 0%,100% { opacity:0; transform:translateY(100vh) rotate(0deg); } 10%,90% { opacity:0.6; } 100% { opacity:0; transform:translateY(-100vh) rotate(360deg); } }
+
+        .sacred-bg { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:150vmax; height:150vmax; pointer-events:none; opacity:0.03; z-index:0; }
+        .sacred-circle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border:1px solid var(--gold); border-radius:50%; animation:sacredPulse 20s infinite ease-in-out; }
+        .sacred-circle:nth-child(1){width:30%;height:30%;animation-delay:0s}
+        .sacred-circle:nth-child(2){width:50%;height:50%;animation-delay:2s}
+        .sacred-circle:nth-child(3){width:70%;height:70%;animation-delay:4s}
+        .sacred-circle:nth-child(4){width:90%;height:90%;animation-delay:6s}
+        @keyframes sacredPulse { 0%,100%{opacity:0.3;transform:translate(-50%,-50%) scale(1) rotate(0deg)} 50%{opacity:0.8;transform:translate(-50%,-50%) scale(1.05) rotate(180deg)} }
+
+        .container { max-width:900px; margin:0 auto; padding:0 20px; position:relative; z-index:10; }
+
+        .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:60px 20px; }
+        .logo { width:190px; margin-bottom:50px; animation:sigilFloat 6s ease-in-out infinite; }
+        @keyframes sigilFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+        .hero-kicker { font-size:11px; letter-spacing:8px; color:var(--gold); margin-bottom:20px; text-transform:uppercase; }
+        .hero-title { font-family:'Cinzel',serif; font-size:clamp(36px,8vw,70px); letter-spacing:4px; line-height:1.1; }
+        .hero-title .gold { color:var(--gold); display:block; font-weight:600; }
+        .hero-subtitle { font-family:'Cormorant Garamond',serif; font-size:clamp(19px,4vw,25px); font-style:italic; color:var(--silver); max-width:680px; margin:40px auto 60px; line-height:1.7; }
+
+        .confirmation-badge { display:inline-flex; align-items:center; gap:14px; padding:18px 40px; background:rgba(201,169,97,0.1); border:1px solid rgba(201,169,97,0.3); font-size:13px; letter-spacing:4px; text-transform:uppercase; }
+        .check { width:28px; height:28px; border:2px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--gold); }
+
+        section { padding:120px 0; border-top:1px solid var(--ash); }
+        .section-kicker { font-size:10px; letter-spacing:6px; color:var(--gold); margin-bottom:15px; text-transform:uppercase; }
+        .section-title { font-family:'Cinzel',serif; font-size:clamp(28px,5vw,42px); letter-spacing:2px; text-align:center; }
+
+        /* DETALHES DA AQUISIÇÃO */
+        .acquisition-section { text-align:center; padding:140px 20px; }
+        .email-btn { display:inline-block; background:transparent; border:1px solid var(--gold); color:var(--bone); padding:22px 60px; font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; cursor:pointer; transition:all .4s; }
+        .email-btn:hover { background:var(--gold); color:var(--void); }
+
+        /* COMUNIDADE */
+        .community-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; max-width:700px; margin:60px auto 0; }
+        .community-card { background:var(--smoke); border:1px solid var(--ash); padding:50px 30px; text-align:center; text-decoration:none; color:var(--bone); transition:all .4s; }
+        .community-card:hover { border-color:var(--gold); transform:translateY(-10px); }
+        .community-card h3 { font-family:'Cinzel',serif; font-size:19px; letter-spacing:3px; margin-top:15px; }
+
+        /* ARTEFATOS RESSONANTES */
+        .products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:60px; }
+        .product-card { background:var(--smoke); border:1px solid var(--ash); overflow:hidden; text-decoration:none; color:var(--bone); transition:all .4s; }
+        .product-card:hover { border-color:var(--gold); transform:translateY(-12px); }
+        .product-video { width:100%; aspect-ratio:1; object-fit:cover; display:block; background:#000; }
+        .product-info { padding:28px 20px; text-align:center; }
+        .product-name { font-family:'Cinzel',serif; font-size:17px; letter-spacing:1.5px; margin-bottom:8px; }
+        .product-price { color:var(--gold); font-size:19px; font-weight:500; }
+
+        /* FOOTER */
+        .footer { text-align:center; padding:120px 20px 80px; border-top:1px solid var(--ash); }
+        .footer-logo { font-family:'Cinzel',serif; font-size:34px; letter-spacing:10px; margin-bottom:20px; }
+    </style>
+</head>
+<body>
+
+    <div class="particles" id="particles"></div>
+    <div class="sacred-bg">
+        <div class="sacred-circle"></div>
+        <div class="sacred-circle"></div>
+        <div class="sacred-circle"></div>
+        <div class="sacred-circle"></div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+        <img src="https://i.ibb.co/QvWy1TV5/Design-sem-nome-2.png" alt="AKASHA" class="logo">
+        <p class="hero-kicker">✦ Compra Concluída ✦</p>
+        <h1 class="hero-title">O Portal<br><span class="gold">Foi Aberto</span></h1>
+        <p class="hero-subtitle">
+            Sua energia foi registrada nos Registros Akáshicos.<br>
+            A transformação já começou.
+        </p>
+        <div class="confirmation-badge">
+            <div class="check">✓</div>
+            <span>Compra Confirmada</span>
+        </div>
+    </header>
+
+    <!-- DETALHES DA AQUISIÇÃO -->
+    <section class="acquisition-section">
+        <div class="container">
+            <p class="section-kicker">Manifestação</p>
+            <h2 class="section-title">DETALHES DA AQUISIÇÃO</h2>
+            <a href="https://gmail.com" target="_blank">
+                <div class="email-btn">
+                    Você receberá um e-mail com todos os detalhes.<br>
+                    Se não encontrar, verifique o spam, às vezes o universo testa nossa atenção.
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- O CÍRCULO INTERNO -->
+    <section class="community-section">
+        <div class="container">
+            <p class="section-kicker">O Círculo Interno</p>
+            <h2 class="section-title">Entre para os Iniciados</h2>
+            <div class="community-grid">
+                <a href="https://hubcomplier.github.io/akashastore/" target="_blank" class="community-card">
+                    <h3>AKASHA STORE</h3>
+                    <p style="margin-top:10px;color:#888;">Voltar à loja física</p>
+                </a>
+                <a href="https://hubcomplier.github.io/AKASHAHUB/" target="_blank" class="community-card">
+                    <h3>AKASHA HUB</h3>
+                    <p style="margin-top:10px;color:#888;">Comunidade secreta</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTEFATOS RESSONANTES -->
+    <section class="products-section">
+        <div class="container">
+            <p class="section-kicker">Artefatos Ressonantes</p>
+            <h2 class="section-title">Continue a Jornada</h2>
+            <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:#888;max-width:700px;margin:50px auto 70px;line-height:1.8;">
+                Peças que ressoam com a mesma frequência que você escolheu.<br>
+                O acaso não existe, se chegou até aqui, há um motivo.
+            </p>
+
+            <div class="products-grid">
+
+                <a href="https://hubcomplier.github.io/manifestando-em-silencio/" target="_blank" class="product-card">
+                    <video class="product-video" autoplay loop muted playsinline>
+                        <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1765150760/video_manifestandi_em_silencio_tbep0h.mp4" type="video/mp4">
+                    </video>
+                    <div class="product-info">
+                        <div class="product-name">MANIFESTANDO EM SILÊNCIO</div>
+                        <div class="product-price">R$149,90</div>
+                    </div>
+                </a>
+
+                <a href="https://hubcomplier.github.io/energiacara/" target="_blank" class="product-card">
+                    <video class="product-video" autoplay loop muted playsinline>
+                        <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1765149755/2_pumx6w.mp4" type="video/mp4">
+                    </video>
+                    <div class="product-info">
+                        <div class="product-name">ENERGIA CARA, ACESSO RESTRITO</div>
+                        <div class="product-price">R$149,90</div>
+                    </div>
+                </a>
+
+                <a href="https://hubcomplier.github.io/Vibroaltovivobem/" target="_blank" class="product-card">
+                    <video class="product-video" autoplay loop muted playsinline>
+                        <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1765149812/02_ifp4j5.mp4" type="video/mp4">
+                    </video>
+                    <div class="product-info">
+                        <div class="product-name">VIBRO ALTO, VIVO BEM</div>
+                        <div class="product-price">R$179,90</div>
+                    </div>
+                </a>
+
+                <a href="https://hubcomplier.github.io/eudecreto/" target="_blank" class="product-card">
+                    <video class="product-video" autoplay loop muted playsinline>
+                        <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1765149766/1_d1p6ez.mp4" type="video/mp4">
+                    </video>
+                    <div class="product-info">
+                        <div class="product-name">ENQUANTO VOCÊ DUVIDA, EU DECRETO</div>
+                        <div class="product-price">R$189,90</div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <h2 class="footer-logo">AKASHA</h2>
+            <p style="font-style:italic;color:#666;margin:30px 0;font-size:17px;">
+                Roupa é energia. Vista seu destino.
+            </p>
+            <p style="font-size:11px;color:#555;letter-spacing:2px;">
+                © 2025 AKASHA STORE — Todos os portais reservados
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Partículas douradas
+        const pContainer = document.getElementById('particles');
+        for(let i=0; i<70; i++){
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random()*100 + '%';
+            p.style.animationDelay = Math.random()*15 + 's';
+            p.style.animationDuration = (12 + Math.random()*10) + 's';
+            pContainer.appendChild(p);
+        }
+    </script>
+</body>
+</html>
