@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Akasha Hub • Sagrado Feminino & Masculino • Sessões VIP • Curso Quântico</title>
   <meta name="description" content="Akasha Hub: Sessões VIP Presenciais, Curso de Alinhamento Quântico, Mentorias 1:1 e Ritual para Casal. Transformação energética profunda.">
-  
-  <!-- Open Graph -->
+
+  <!-- PWA / APP -->
+  <link rel="manifest" href="/manifest.json">
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+  </script>
+
+    <!-- Open Graph -->
   <meta property="og:title" content="Akasha Hub • Alinhamento Quântico">
   <meta property="og:description" content="Sessões VIP, Curso de Alinhamento Quântico, Mentorias 1:1">
   <meta property="og:image" content="https://i.ibb.co/Fbxk6mQ3/Design-sem-nome-2.png">
