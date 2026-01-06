@@ -7,6 +7,8 @@
     
     <!-- Fontes de Luxo -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Adicionado FontAwesome para o ícone do WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* --- SAGRADO FEMININO LUXO --- */
@@ -294,6 +296,33 @@
             opacity: 0.6;
         }
 
+        /* --- BOTÃO WHATSAPP ESTILO --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.5);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background-color: #1ebe57;
+            transform: scale(1.1);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+        }
+
         /* --- RESPONSIVO --- */
         @media (max-width: 992px) {
             .yan-layout { flex-direction: column; text-align: center; }
@@ -306,6 +335,7 @@
             .yan-img, .yan-video { width: 250px; height: 340px; }
             .media-container { gap: 20px; }
             .hero { background-attachment: scroll; } /* Melhor performance no mobile */
+            .whatsapp-float { width: 50px; height: 50px; font-size: 26px; bottom: 20px; right: 20px; }
         }
 
         @media (max-width: 480px) {
@@ -418,7 +448,7 @@
         </div>
     </section>
 
-    <!-- OFERTA SAGRADA (BACKGROUND DE VÍDEO) -->
+    <!-- OFERTA SAGRADA (BACKGROUND DE VÍDEO) - PREÇO REMOVIDO -->
     <section class="price-section">
         <!-- Vídeo de Fundo -->
         <video class="bg-video" autoplay loop muted playsinline>
@@ -433,9 +463,7 @@
                 <h2 style="font-size: 1.8rem; margin-bottom: 10px; font-weight: 400;">Sessão Individual do Sagrado Feminino</h2>
                 <p style="color: #C8A8AA; font-size: 0.9rem; margin-bottom: 40px;">Online via Zoom • Duração: 60 minutos de imersão</p>
 
-                <div style="margin-bottom: 40px;">
-                    <span style="font-size: 3rem; font-family: 'Cinzel', serif; color: var(--pearl);">R$ 150,00</span>
-                </div>
+                <!-- PREÇO REMOVIDO AQUI -->
 
                 <a href="https://hotmart.com/pt-br/marketplace/produtos/sessao-alinhamento-online/N101827105S" target="_blank" class="btn-session" style="width: 100%; text-align: center;">
                     Despertar Meu Feminino Sagrado
@@ -458,6 +486,11 @@
         <p> SHAKTI AKASHA © 2024 • Templo do Sagrado Feminino</p>
         <p style="margin-top: 10px; font-style: italic; color: var(--rose-gold);">Honrando a Deusa em cada mulher</p>
     </footer>
+
+    <!-- BOTÃO WHATSAPP ADICIONADO -->
+    <a href="https://wa.me/557183448621?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Alinhamento%20do%20Sagrado%20Feminino." class="whatsapp-float" target="_blank" title="Fale Conosco">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
