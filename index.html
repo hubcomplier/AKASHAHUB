@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -1476,7 +1475,7 @@
     </div>
   </section>
 
- <!-- BIBLIOTECA DE ÁUDIOS -->
+<!-- BIBLIOTECA DE ÁUDIOS (COM ROLAGEM) -->
 <section id="audios" class="audio-library-section">
   <div class="container">
     <div class="section-title">
@@ -1489,53 +1488,68 @@
       <h3 class="category-title"><i class="fas fa-gift"></i> Áudios Gratuitos</h3>
       <p class="category-description">Comece sua jornada de transformação com estes áudios selecionados</p>
       
-      <div class="audio-grid">
-        <div class="audio-card free">
-          <div class="audio-icon"><i class="fas fa-om"></i></div>
-          <div class="audio-badge free-badge">GRATUITO</div>
-          <h4>O Código Secreto do Universo</h4>
-          <p>Áudio Hipnose • 6 min</p>
-          <audio id="audio-1" controls class="audio-player">
-            <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1767485136/codigo_odp7ky.mp3">
-          </audio>
-          <div class="audio-info-player"><i class="fas fa-play-circle"></i><span>Clique para reproduzir</span></div>
-        </div>
+      <!-- Wrapper do Carrossel -->
+      <div class="carousel-wrapper">
+        <button class="btn-scroll left-btn"><i class="fas fa-chevron-left"></i></button>
+        
+        <div class="audio-grid scroll-grid">
+          <!-- Card 1 -->
+          <div class="audio-card free">
+            <div class="audio-icon"><i class="fas fa-om"></i></div>
+            <div class="audio-badge free-badge">GRATUITO</div>
+            <h4>O Código Secreto do Universo</h4>
+            <p>Áudio Hipnose • 6 min</p>
+            <audio controls class="audio-player">
+              <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1767485136/codigo_odp7ky.mp3">
+            </audio>
+            <div class="audio-info-player"><i class="fas fa-play-circle"></i><span>Clique para reproduzir</span></div>
+          </div>
 
-        <div class="audio-card free">
-          <div class="audio-icon"><i class="fas fa-moon"></i></div>
-          <div class="audio-badge free-badge">GRATUITO</div>
-          <h4>A Mente Silenciosa</h4>
-          <p>Audio prévia • 1:50 min</p>
-          <audio id="audio-2" controls class="audio-player">
-            <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1767493413/WhatsApp_Audio_2026-01-03_at_23.20.59_isyv64.mp3" type="audio/mpeg">
-          </audio>
-          <div class="audio-info-player"><i class="fas fa-play-circle"></i><span>Clique para reproduzir</span></div>
+          <!-- Card 2 -->
+          <div class="audio-card free">
+            <div class="audio-icon"><i class="fas fa-moon"></i></div>
+            <div class="audio-badge free-badge">GRATUITO</div>
+            <h4>A Mente Silenciosa</h4>
+            <p>Audio prévia • 1:50 min</p>
+            <audio controls class="audio-player">
+              <source src="https://res.cloudinary.com/dlueoyrhe/video/upload/v1767493413/WhatsApp_Audio_2026-01-03_at_23.20.59_isyv64.mp3" type="audio/mpeg">
+            </audio>
+            <div class="audio-info-player"><i class="fas fa-play-circle"></i><span>Clique para reproduzir</span></div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="audio-card free">
+              <div class="audio-icon"><i class="fas fa-heart"></i></div>
+              <div class="audio-badge free-badge">GRATUITO</div>
+              <h4>Ativação do Coração</h4>
+              <p>Abertura do chakra cardíaco • 12 min</p>
+              <div class="audio-preview" onclick="alert('Funcionalidade de exemplo')"><i class="fas fa-play-circle"></i><span>Preview disponível</span></div>
+          </div>
+          
+          <!-- Card 4 -->
+          <div class="audio-card free">
+              <div class="audio-icon"><i class="fas fa-sun"></i></div>
+              <div class="audio-badge free-badge">GRATUITO</div>
+              <h4>Despertar Matinal</h4>
+              <p>Energia para o dia • 10 min</p>
+              <div class="audio-preview" onclick="alert('Funcionalidade de exemplo')"><i class="fas fa-play-circle"></i><span>Preview disponível</span></div>
+          </div>
         </div>
         
-        <div class="audio-card free">
-            <div class="audio-icon"><i class="fas fa-heart"></i></div>
-            <div class="audio-badge free-badge">GRATUITO</div>
-            <h4>Ativação do Coração</h4>
-            <p>Abertura do chakra cardíaco • 12 min</p>
-            <div class="audio-preview" onclick="alert('Funcionalidade de exemplo')"><i class="fas fa-play-circle"></i><span>Preview disponível</span></div>
-        </div>
-        
-        <div class="audio-card free">
-            <div class="audio-icon"><i class="fas fa-sun"></i></div>
-            <div class="audio-badge free-badge">GRATUITO</div>
-            <h4>Despertar Matinal</h4>
-            <p>Energia para o dia • 10 min</p>
-            <div class="audio-preview" onclick="alert('Funcionalidade de exemplo')"><i class="fas fa-play-circle"></i><span>Preview disponível</span></div>
-        </div>
+        <button class="btn-scroll right-btn"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
 
-      <!-- ÁUDIOS PREMIUM -->
-      <div class="audio-category premium-section">
-        <h3 class="category-title premium-title"><i class="fas fa-crown"></i> Áudios Premium</h3>
-        <p class="category-description">Conteúdo exclusivo para membros da comunidade Akasha</p>
+    <!-- ÁUDIOS PREMIUM -->
+    <div class="audio-category premium-section">
+      <h3 class="category-title premium-title"><i class="fas fa-crown"></i> Áudios Premium</h3>
+      <p class="category-description">Conteúdo exclusivo para membros da comunidade Akasha</p>
+      
+      <!-- Wrapper do Carrossel Premium -->
+      <div class="carousel-wrapper">
+        <button class="btn-scroll left-btn"><i class="fas fa-chevron-left"></i></button>
         
-        <div class="audio-grid">
+        <div class="audio-grid scroll-grid">
           <div class="audio-card premium locked">
             <div class="lock-overlay"><i class="fas fa-lock"></i><span>Conteúdo Exclusivo</span></div>
             <div class="audio-icon"><i class="fas fa-dna"></i></div>
@@ -1552,174 +1566,30 @@
             <p>Ativação do campo magnético • 35 min</p>
             <div class="audio-preview locked-preview"><i class="fas fa-lock"></i><span>Bloqueado</span></div>
           </div>
+           <!-- Adicionei um extra só para testar a rolagem se quiser -->
+           <div class="audio-card premium locked">
+            <div class="lock-overlay"><i class="fas fa-lock"></i><span>Conteúdo Exclusivo</span></div>
+            <div class="audio-icon"><i class="fas fa-star"></i></div>
+            <div class="audio-badge premium-badge">PREMIUM</div>
+            <h4>Viagem Astral</h4>
+            <p>Expansão da consciência • 60 min</p>
+            <div class="audio-preview locked-preview"><i class="fas fa-lock"></i><span>Bloqueado</span></div>
+          </div>
         </div>
+
+        <button class="btn-scroll right-btn"><i class="fas fa-chevron-right"></i></button>
       </div>
-
-      <div class="audio-actions">
-        <a href="https://akashahub.com.br/vault/" target="_blank" rel="noopener noreferrer" class="audio-btn buy-btn">
-          <i class="fas fa-shopping-cart"></i> Comprar Pack de Áudios
-        </a>
-      </div>
-
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p style="font-size:1.4rem;margin-bottom:1rem;">© 2024 Akasha Hub • Portal de Transformação Quântica</p>
-      <p>Todas as experiências são estritamente confidenciais e profissionais.</p>
+    <div class="audio-actions">
+      <a href="https://akashahub.com.br/vault/" target="_blank" rel="noopener noreferrer" class="audio-btn buy-btn">
+        <i class="fas fa-shopping-cart"></i> Comprar Pack de Áudios
+      </a>
     </div>
-  </footer>
 
-  <script>
-    // ======= MENU MOBILE LOGIC =======
-    function toggleNav() {
-      const navList = document.getElementById('navList');
-      const navToggle = document.querySelector('.nav-toggle');
-
-      navList.classList.toggle('active');
-
-      const expanded = navList.classList.contains('active');
-      navToggle.setAttribute('aria-expanded', expanded);
-      
-      const icon = navToggle.querySelector('i');
-      if(expanded) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    }
-
-    // ======= TAB LOGIC =======
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      const selectedContent = document.getElementById(tabId);
-      if(selectedContent) {
-        selectedContent.classList.add('active');
-      }
-      const btns = document.querySelectorAll('.tab-btn');
-      btns.forEach(btn => {
-        if(btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)) {
-          btn.classList.add('active');
-        }
-      });
-    }
-
-    function goToAudios() {
-      document.getElementById('audios').scrollIntoView({behavior: 'smooth'});
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      const libBtn = document.querySelector('.tab-btn[onclick*="goToAudios"]');
-      if(libBtn) libBtn.classList.add('active');
-    }
-
-    // ======= AUDIO PLAYER LOGIC COM VOLUME =======
-    const audio = document.getElementById('backgroundAudio');
-    const audioVisualizer = document.getElementById('audioVisualizer');
-    const audioIcon = document.getElementById('audioIcon');
-    const volumeSlider = document.getElementById('volumeSlider');
-    const volumeValue = document.getElementById('volumeValue');
-    const volumeIcon = document.getElementById('volumeIcon');
-    let isPlaying = false;
-
-    // Definir volume inicial
-    audio.volume = 0.7;
-
-    function toggleBackgroundAudio() {
-      if (isPlaying) {
-        audio.pause();
-        audioVisualizer.classList.add('paused');
-        audioIcon.classList.remove('fa-pause');
-        audioIcon.classList.add('fa-play');
-      } else {
-        audio.play().catch(e => console.log("Interação necessária para tocar áudio"));
-        audioVisualizer.classList.remove('paused');
-        audioIcon.classList.remove('fa-play');
-        audioIcon.classList.add('fa-pause');
-      }
-      isPlaying = !isPlaying;
-    }
-
-    function changeVolume(value) {
-      audio.volume = value / 100;
-      volumeValue.textContent = value + '%';
-      if (value == 0) {
-        volumeIcon.className = 'fas fa-volume-mute volume-icon';
-      } else if (value < 50) {
-        volumeIcon.className = 'fas fa-volume-down volume-icon';
-      } else {
-        volumeIcon.className = 'fas fa-volume-up volume-icon';
-      }
-    }
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-
-      // Scroll Progress Bar
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      document.querySelector(".scroll-progress").style.width = scrolled + "%";
-    });
-
-    // ======= SISTEMA DE LOGIN E DASHBOARD =======
-    function openLogin() {
-      document.getElementById('loginModal').classList.add('active');
-    }
-    function closeLogin() {
-      document.getElementById('loginModal').classList.remove('active');
-    }
-    function handleLogin(e) {
-      e.preventDefault();
-      // SIMULAÇÃO DE LOGIN BEM SUCEDIDO
-      closeLogin();
-      
-      // Esconder site público
-      document.querySelector('.hero').style.display = 'none';
-      document.querySelector('.books-showcase').style.display = 'none';
-      document.querySelector('main').style.display = 'none';
-      document.querySelector('.communities-section').style.display = 'none';
-      document.getElementById('audios').style.display = 'none';
-      
-      // Mostrar Área de Membros
-      document.getElementById('memberArea').classList.add('active');
-      window.scrollTo(0,0);
-      alert("Bem-vindo(a) ao Portal Akasha Hub. Acesso concedido.");
-    }
-
-    function logout() {
-      // Esconder Área de Membros
-      document.getElementById('memberArea').classList.remove('active');
-      
-      // Mostrar site público
-      document.querySelector('.hero').style.display = 'flex';
-      document.querySelector('.books-showcase').style.display = 'block';
-      document.querySelector('main').style.display = 'block';
-      document.querySelector('.communities-section').style.display = 'block';
-      document.getElementById('audios').style.display = 'block';
-      window.scrollTo(0,0);
-    }
-
-    function switchDash(dashId) {
-      document.querySelectorAll('.dash-tab').forEach(tab => tab.classList.remove('active'));
-      document.querySelectorAll('.dash-btn').forEach(btn => btn.classList.remove('active'));
-      document.getElementById(dashId).classList.add('active');
-      const clickedBtn = document.querySelector(`button[onclick="switchDash('${dashId}')"]`);
-      if(clickedBtn) clickedBtn.classList.add('active');
-    }
-
+  </div>
+</section>
   </script>
+  
 </body>
 </html>
